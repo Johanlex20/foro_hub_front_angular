@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TemasListComponent } from './temas-list/temas-list.component';
 import { TemaFormComponent } from './tema-form/tema-form.component';
 import { UsuarioListComponent } from './usuario-list/usuario-list.component';
+import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
 
 const routes: Routes = [
 
@@ -17,6 +18,9 @@ const routes: Routes = [
   {
     path:'usuarios',
     component: UsuarioListComponent
+  },{
+    path:'new/usuario',
+    component: UsuarioFormComponent
   }
 
 ];

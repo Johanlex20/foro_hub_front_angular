@@ -16,14 +16,25 @@ export class TemasListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadTemas();
+  }
+
+  loadTemas(){
     this.temaService.paginate()
-      .subscribe(temaPage => {
-        this.temas = temaPage.content;
-      })
+    .subscribe(temaPage => {
+      this.temas = temaPage.content;
+    })
   }
 
 
-
+  deleteTema(tema:Tema){
+    if(confirm('Esta seguro de eliminar el tema?')){
+      this.temaService.delete(tema)
+      .subscribe(()=>{
+        this.loadTemas();
+      });
+    }
+  }
 
 
 

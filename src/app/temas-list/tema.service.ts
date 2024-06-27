@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { TemaPage } from '../interfaces/tema.interface';
+import { Tema, TemaPage } from '../interfaces/tema.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,10 @@ export class TemaService implements OnInit {
 
   paginate(){
     return this.http.get<TemaPage>('http://localhost:8080/api/topicos');
+  }
+
+  create(tema: Tema){
+    return this.http.post<Tema>('http://localhost:8080/api/topicos', tema);
   }
 
 }

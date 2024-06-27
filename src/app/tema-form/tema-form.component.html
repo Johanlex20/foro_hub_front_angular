@@ -9,15 +9,15 @@
             <label for="title">Título</label>
             <input id="title" type="text" placeholder="Título" class="form-control" formControlName="titulo">
             <div class="invalid-feedback d-block">
-                <div *ngIf="form.controls['titulo'].hasError('required')">
+                <ng-container *ngIf="controlHasError('titulo', 'required')">
                     Titulo es obligatorio
-                </div>
-                <div *ngIf="form.controls['titulo'].hasError('minlength')">
+                </ng-container>
+                <ng-container *ngIf="controlHasError('titulo', 'minlength')">
                     Titulo debe tener al menos 3 caracteres
-                </div>
-                <div *ngIf="form.controls['titulo'].hasError('maxlength')">
+                </ng-container>
+                <ng-container *ngIf="controlHasError('titulo', 'maxlength')">
                     Titulo puede tener 100 caracteres maximo
-                </div>
+                </ng-container>
             </div>
         </div>
 
@@ -25,6 +25,18 @@
             <label for="slug">Mensaje</label>
             <textarea id="slug" type="text" placeholder="Mensaje" class="form-control" formControlName="mensaje"></textarea>
             <div class="invalid-feedback d-block">
+                <ng-container *ngIf="controlHasError('mensaje', 'required')">
+                    El Mensaje es obligatorio
+                </ng-container>
+                <ng-container *ngIf="controlHasError('mensaje','minlength')">
+                    El Mensaje debe tener al menos 5 caracteres
+                </ng-container>
+                <ng-container *ngIf="controlHasError('mensaje', 'maxlength')">
+                    El Mensaje puede tener 5000 caracteres maximo
+                </ng-container>
+                <ng-container *ngIf="controlHasError('mensaje', 'pattern')">
+                    El Mensaje no puede tener caracteres entre:  a-z 0-9 - +
+                </ng-container>
             </div>
         </div>
 
@@ -32,6 +44,9 @@
             <label for="descripcion">Genero</label>
             <input id="descripcion" placeholder="Genero" class="form-control" formControlName="genero">
             <div class="invalid-feedback d-block">
+                <ng-container *ngIf="controlHasError('genero','required')">
+                    Genero es obligatorio
+                </ng-container>
             </div>
         </div>
 
@@ -39,10 +54,13 @@
             <label for="precio">Usuario Id</label>
             <input id="precio" type="number" step="0.01" placeholder="usuarioId" class="form-control" formControlName="usuarioId">
             <div class="invalid-feedback d-block">
+                <ng-container *ngIf="controlHasError('usuarioId','required')">
+                    ID usuairo es obligatoria
+                </ng-container>
             </div>
         </div>
 
-        <div class="text-end">
+        <div class="text-end mt-3">
             <button  type="button" class="btn btn-light">
                 Cancelar
             </button>

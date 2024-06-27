@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { TemaFormComponent } from './tema-form/tema-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UsuarioListComponent } from './usuario-list/usuario-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemasListComponent,
-    TemaFormComponent
+    TemaFormComponent,
+    UsuarioListComponent
   ],
   imports: [
     BrowserModule,

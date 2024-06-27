@@ -1,0 +1,54 @@
+<div>
+    <h1>NUEVO TEMA</h1>
+
+    <div class="mt-5 alert alert-danger">
+    </div>
+
+    <form class="mt-5" [formGroup]="form" (ngSubmit)="save()" autocomplete="off">
+        <div class="mb-2">
+            <label for="title">Título</label>
+            <input id="title" type="text" placeholder="Título" class="form-control" formControlName="titulo">
+            <div class="invalid-feedback d-block">
+                <div *ngIf="form.controls['titulo'].hasError('required')">
+                    Titulo es obligatorio
+                </div>
+                <div *ngIf="form.controls['titulo'].hasError('minlength')">
+                    Titulo debe tener al menos 3 caracteres
+                </div>
+                <div *ngIf="form.controls['titulo'].hasError('maxlength')">
+                    Titulo puede tener 100 caracteres maximo
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <label for="slug">Mensaje</label>
+            <textarea id="slug" type="text" placeholder="Mensaje" class="form-control" formControlName="mensaje"></textarea>
+            <div class="invalid-feedback d-block">
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <label for="descripcion">Genero</label>
+            <input id="descripcion" placeholder="Genero" class="form-control" formControlName="genero">
+            <div class="invalid-feedback d-block">
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <label for="precio">Usuario Id</label>
+            <input id="precio" type="number" step="0.01" placeholder="usuarioId" class="form-control" formControlName="usuarioId">
+            <div class="invalid-feedback d-block">
+            </div>
+        </div>
+
+        <div class="text-end">
+            <button  type="button" class="btn btn-light">
+                Cancelar
+            </button>
+            <button class="btn btn-primary ms-2">
+                Crear Tema
+            </button>
+        </div>
+    </form>
+</div>

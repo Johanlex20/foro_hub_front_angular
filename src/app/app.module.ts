@@ -6,15 +6,20 @@ import { AppComponent } from './app.component';
 import { TemasListComponent } from './temas-list/temas-list.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { TemaFormComponent } from './tema-form/tema-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
-    TemasListComponent
+    TemasListComponent,
+    TemaFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

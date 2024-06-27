@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./tema-form.component.css']
 })
 export class TemaFormComponent {
+
+  errors: string [] = [];
+
   form:FormGroup =  this.fb.group({
     titulo:['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
     mensaje:[, [Validators.required, Validators.minLength(5), Validators.maxLength(5000), Validators.pattern('[a-z0-9- ]+')]],
@@ -34,8 +37,17 @@ export class TemaFormComponent {
     let tema = this.form.value;
 
     this.temaService.create(tema)
-      .subscribe(tema=>{
-        this.router.navigate(['/']);
+      .subscribe({
+        next:tema=>{
+          this.router.navigate(['/']);
+        },
+        error: error =>{
+          if(error.error.status === 400){
+            this.errors.push(error.error.detail);
+          }else if(error.error.status === 422){
+            this.errors.push(...error.error.errors)
+          }
+        }
       });
    }
 

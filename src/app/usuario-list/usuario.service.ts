@@ -20,4 +20,8 @@ export class UsuarioService {
     return this.http.post<Usuario>('http://localhost:8080/api/usuario', usuario);
   }
 
+  delete(usuario: Usuario){
+    return this.http.delete(`http://localhost:8080/api/usuario/${usuario.id}`);
+  }
+
 }

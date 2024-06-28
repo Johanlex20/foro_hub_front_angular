@@ -39,7 +39,7 @@ export class TemaFormComponent {
     this.temaService.create(tema)
       .subscribe({
         next:tema=>{
-          this.router.navigate(['/']);
+          this.router.navigate(['/tema']);
         },
         error: error =>{
           if(error.error.status === 400){

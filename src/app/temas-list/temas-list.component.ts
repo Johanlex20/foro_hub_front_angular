@@ -26,7 +26,6 @@ export class TemasListComponent implements OnInit {
     })
   }
 
-
   deleteTema(tema:Tema){
     if(confirm('Esta seguro de eliminar el tema?')){
       this.temaService.delete(tema)

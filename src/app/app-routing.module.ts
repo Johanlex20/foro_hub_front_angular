@@ -8,11 +8,11 @@ import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
 const routes: Routes = [
 
   {
-    path: '',
+    path: 'tema',
     component: TemasListComponent
   },
   {
-    path:'new',
+    path:'new/tema',
     component: TemaFormComponent
   },
   {

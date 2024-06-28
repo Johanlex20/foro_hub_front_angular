@@ -25,6 +25,10 @@ export class TemaService implements OnInit {
     return this.http.post<Tema>('http://localhost:8080/api/topicos', tema);
   }
 
+  update(id: number, tema: Tema){
+    return this.http.put<Tema>(`http://localhost:8080/api/topicos/${id}`, tema);
+  }
+
   get(id:number){
     return this.http.get<Tema>(`http://localhost:8080/api/topicos/${id}`);
   }

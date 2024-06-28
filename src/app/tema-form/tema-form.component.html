@@ -1,5 +1,7 @@
-<div>
-    <h1>NUEVO TEMA</h1>
+<div *ngIf="form">
+    <h1>
+        {{ tema ? 'EDITAR' : 'NUEVO' }} TEMA
+    </h1>
 
     <div class="mt-5 alert alert-danger" *ngIf="errors.length">
         <ul >
@@ -68,7 +70,7 @@
                 Cancelar
             </button>
             <button class="btn btn-primary ms-2">
-                Crear Tema
+                {{ tema ? 'ACTUALIZAR' : 'CREAR' }} TEMA
             </button>
         </div>
     </form>

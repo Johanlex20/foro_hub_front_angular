@@ -12,7 +12,7 @@ const routes: Routes = [
     component: TemasListComponent
   },
   {
-    path:'new/tema',
+    path:'tema/new',
     component: TemaFormComponent
   },
   {

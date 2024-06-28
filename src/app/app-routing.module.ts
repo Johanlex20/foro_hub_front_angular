@@ -16,6 +16,10 @@ const routes: Routes = [
     component: TemaFormComponent
   },
   {
+    path:'tema/:id/edit',
+    component: TemaFormComponent
+  },
+  {
     path:'usuarios',
     component: UsuarioListComponent
   },{

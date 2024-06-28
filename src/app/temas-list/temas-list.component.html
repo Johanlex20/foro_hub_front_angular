@@ -48,7 +48,7 @@
                 {{ tema.activo }}
             </td>
             <td>
-                <a href="#">
+                <a [routerLink]="['/tema/', tema.id, 'edit']">
                     Editar
                 </a>
                 <a href="/tema" class="ms-2" (click)="deleteTema(tema)" >

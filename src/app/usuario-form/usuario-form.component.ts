@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./usuario-form.component.css']
 })
 export class UsuarioFormComponent {
+
+  errors: string [] = [];
+
   form:FormGroup = this.fb.group({
     nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(45)]],
     email:['', [Validators.required, Validators.email]],
@@ -35,8 +38,17 @@ export class UsuarioFormComponent {
     usuario.filePerfil = "img.dumy"
 
     this.usuarioService.create(usuario)
-      .subscribe( usuario=>{
-        this.router.navigate(['/usuarios']);
+      .subscribe({
+        next:usuario=>{
+          this.router.navigate(['/usuarios']);
+        },
+        error: error =>{
+          if(error.error.status === 400){
+            this.errors.push(error.error.detail);
+          }else if(error.error.status === 422){
+            this.errors.push(...error.error.errors)
+          }
+        }
       });
   
   }

@@ -43,7 +43,7 @@
                 {{ usuario.activo }}
             </td>
             <td>
-                <a href="#">
+                <a [routerLink]="['/usuario/', usuario.id, 'edit']">
                     Editar
                 </a>
                 <a href="/usuarios" class="ms-2" (click)="deleteUsuario(usuario)">

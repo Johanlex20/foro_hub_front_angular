@@ -16,6 +16,10 @@ export class UsuarioService {
     return this.http.get<UsuarioPage>('http://localhost:8080/api/usuario');
   }
 
+  get(id: number){
+    return this.http.get<Usuario>(`http://localhost:8080/api/usuario/${id}`);
+  }
+
   create(usuario: Usuario){
     return this.http.post<Usuario>('http://localhost:8080/api/usuario', usuario);
   }

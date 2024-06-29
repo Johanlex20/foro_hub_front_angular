@@ -25,6 +25,10 @@ const routes: Routes = [
   },{
     path:'new/usuario',
     component: UsuarioFormComponent
+  },
+  {
+    path:'usuario/:id/edit',
+    component: UsuarioFormComponent
   }
 
 ];

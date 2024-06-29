@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../usuario-list/usuario.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-form',
   templateUrl: './usuario-form.component.html',
   styleUrls: ['./usuario-form.component.css']
 })
-export class UsuarioFormComponent {
+export class UsuarioFormComponent implements OnInit{
 
   errors: string [] = [];
 
@@ -22,8 +22,22 @@ export class UsuarioFormComponent {
   constructor(
     private fb : FormBuilder,
     private usuarioService: UsuarioService,
-    private router: Router
+    private router: Router,
+    private route:ActivatedRoute
   ){}
+
+
+  ngOnInit(): void {
+    const usuarioId = this.route.snapshot.paramMap.get('id')!;
+
+    this.usuarioService.get(parseInt(usuarioId))
+      .subscribe( usuario => {
+        console.log('usuario', usuario);
+      });
+
+  }
+
+  
 
   controlHasError(control: string, error: string){
     return this.form.controls[control].hasError(error);

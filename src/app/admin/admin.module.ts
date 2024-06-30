@@ -8,6 +8,7 @@ import { UsuarioFormComponent } from './components/usuario-form/usuario-form.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
+import { LayoutComponent } from './components/layout/layout.component';
 
 
 
@@ -16,7 +17,8 @@ import { SharedModule } from '../shared/shared.module';
     TemasListComponent,
     TemaFormComponent,
     UsuarioListComponent,
-    UsuarioFormComponent
+    UsuarioFormComponent,
+    LayoutComponent
   ],
   imports: [
     

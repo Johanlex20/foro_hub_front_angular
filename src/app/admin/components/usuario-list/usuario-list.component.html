@@ -50,12 +50,16 @@
             </td>
         </ng-container>
 
-        <ng-container matColumnDef="estado">
+        <ng-container matColumnDef="estado" >
             <th mat-header-cell *matHeaderCellDef>Estado</th>
             <td mat-cell *matCellDef="let usuario">
-                {{ usuario.activo}}
+                <div class="d-flex flex-column align-items-center">
+                    <mat-icon *ngIf="usuario.activo" class="icon-verde" matTooltip="Usuario activo">check_circle</mat-icon>
+                    <mat-icon *ngIf="!usuario.activo" class="icon-rojo" matTooltip="Usuario inactivo" >cancel</mat-icon>
+                </div>
             </td>
         </ng-container>
+
 
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef>Acciones</th>

@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <div class="mb-2">
+        <div class="mb-3">
             <label for="role">Role</label>
             <input id="role" type="text" placeholder="role" class="form-control" formControlName="role">
             <div class="invalid-feedback d-block">
@@ -69,6 +69,11 @@
         <div class="mb-3">
             <label for="filePerfil">Imagen Perfil</label>
             <input id="filePerfil" type="file" class="form-control" accept=".png, .jpg, .jpeg" (change)="uploadFile($event,'filePerfil')">
+
+            <div class="small text-muted" *ngIf="form.controls['filePerfil'].value ">
+                Ruta actual: {{ form.controls['filePerfil'].value }}
+            </div>
+
             <div class="invalid-feedback d-block">
                 <ng-container *ngIf="controlHasError('filePerfil', 'required')">
                     La imagen es obligatorio

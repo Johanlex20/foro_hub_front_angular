@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../services/usuario.service';
-import { Usuario } from '../../../interfaces/usuairo.interface';
+import { Usuario, UsuarioPage } from '../../../interfaces/usuairo.interface';
 import { Router } from '@angular/router';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-usuario-list',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class UsuarioListComponent implements OnInit {
 
-  usuarios?: Usuario[];
+  usuarioPage?: UsuarioPage;
+  displayedColums= ['id','titulo','email','password','createdAt','estado','actions']
 
 
   constructor(
@@ -23,9 +25,9 @@ export class UsuarioListComponent implements OnInit {
   }
 
   loadUsuario() {
-    this.usuarioService.pagiante()
+    this.usuarioService.paginate()
       .subscribe(usuarioPage => {
-        this.usuarios = usuarioPage.content;
+        this.usuarioPage = usuarioPage;
       });
   }
 
@@ -37,10 +39,11 @@ export class UsuarioListComponent implements OnInit {
           this.loadUsuario();
         });
     }
-
-
-
-
   }
+
+  UsuarioPage(event: PageEvent){
+    console.log('event', event);
+  }
+
 
 }

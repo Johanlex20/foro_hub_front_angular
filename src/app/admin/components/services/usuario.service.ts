@@ -12,7 +12,7 @@ export class UsuarioService {
   ) {}
 
 
-  pagiante(){
+  paginate(){
     return this.http.get<UsuarioPage>('http://localhost:8080/api/usuario');
   }
 

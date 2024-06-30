@@ -1,55 +1,77 @@
 <h1>Lista de usuarios</h1>
 
 <div class="text-end">
-    <button class="btn btn-primary" routerLink="/admin/usuario/new">
+    <button mat-raised-button color="primary" routerLink="/admin/usuario/new">
         NUEVO USUARIO
     </button>
 </div>
 
-<table class="table table-hover mt-5">
-    <thead>
-        <tr>
-            <th> ID USUARIO </th>
-            <th> NOMBRE </th>
-            <th> EMAIL </th>
-            <th> PASSWORD </th>
-            <th> IMAGEN </th>
-            <th> FECHA CREACION </th>
-            <th> ACTIVO </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let usuario of usuarios">
-            <td>
+<div *ngIf="usuarioPage">
+    <table mat-table [dataSource]="usuarioPage.content"> <!-- class="table table-hover mt-5" -->
+        
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <td mat-cell *matCellDef="let usuario">
                 {{ usuario.id }}
             </td>
-            <td>
+        </ng-container>
+        
+        <ng-container matColumnDef="titulo">
+            <th mat-header-cell *matHeaderCellDef>Usuario</th>
+            <td mat-cell *matCellDef="let usuario">
+                <div>
+                {{ usuario.id }}
+                </div>
+               <div>
                 {{ usuario.nombre }}
+               </div>
             </td>
-            <td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let usuario">
                 {{ usuario.email }}
             </td>
-            <td>
+        </ng-container>
+        
+        <ng-container matColumnDef="password">
+            <th mat-header-cell *matHeaderCellDef>Password</th>
+            <td mat-cell *matCellDef="let usuario">
                 {{ usuario.password }}
             </td>
-            <td>
-                {{ usuario.filePerfil }}
-            </td>
-            <td>
+        </ng-container>
+                
+        <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef>Fecha</th>
+            <td mat-cell *matCellDef="let usuario">
                 {{ usuario.createdAt | date: 'dd/MM/yyyy' }}
             </td>
-            <td>
-                {{ usuario.activo }}
+        </ng-container>
+
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let usuario">
+                {{ usuario.activo}}
             </td>
-            <td>
-                <a [routerLink]="['/admin/usuario/', usuario.id, 'edit']">
-                    Editar
-                </a>
-                <a href="/admin/usuarios" class="ms-2" (click)="deleteUsuario(usuario)">
-                    Eliminar
-                </a>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let usuario">
+                <div class="d-flex flex-nowrap">
+                    <button mat-icon-button [routerLink]="['/admin/usuario/', usuario.id, 'edit']" color="primary" matTooltip="Editar Usuario">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button  mat-icon-button [routerLink]="['/admin/usuarios']" class="ms-2" (click)="deleteUsuario(usuario)" color="warn" matTooltip="Eliminar Usuario">
+                       <mat-icon>delete</mat-icon> 
+                    </button>  <!-- href="/admin/usuarios"  -->
+                </div>
             </td>
-        </tr>
-    </tbody>
-</table>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColums"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColums;"></tr>
+    
+    </table>
+</div>

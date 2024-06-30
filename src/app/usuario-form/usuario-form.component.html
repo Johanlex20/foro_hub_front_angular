@@ -10,86 +10,101 @@
         </ul>
     </div>
 
-    <form class="mt-5" [formGroup]="form" (ngSubmit)="save()" autocomplete="off">
-        <div class="mb-2">
-            <label for="nombre">Nombre</label>
-            <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre">
-            <div class="invalid-feedback d-block">
-                <ng-container *ngIf="controlHasError('nombre','required')">
-                    Nombre es obligatorio
-                </ng-container>
-                <ng-container *ngIf="controlHasError('nombre','minlength')">
-                    Nombre debe tener minimo 3 caracteres
-                </ng-container>
-                <ng-container *ngIf="controlHasError('nombre','maxlength')">
-                    Nombre puede tener maximo 45 caracteres
-                </ng-container>
-            </div>
+    <div class="row">
+        <div class="col-md-8">
+            <form class="mt-5" [formGroup]="form" (ngSubmit)="save()" autocomplete="off">
+                <div class="mb-2">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre">
+                    <div class="invalid-feedback d-block">
+                        <ng-container *ngIf="controlHasError('nombre','required')">
+                            Nombre es obligatorio
+                        </ng-container>
+                        <ng-container *ngIf="controlHasError('nombre','minlength')">
+                            Nombre debe tener minimo 3 caracteres
+                        </ng-container>
+                        <ng-container *ngIf="controlHasError('nombre','maxlength')">
+                            Nombre puede tener maximo 45 caracteres
+                        </ng-container>
+                    </div>
+                </div>
+        
+                <div class="mb-2">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="email" class="form-control" formControlName="email">
+                    <div class="invalid-feedback d-block">
+                        <ng-container *ngIf="controlHasError('email', 'required')">
+                            EL Email es obligatorio
+                        </ng-container>
+                        <ng-container *ngIf="controlHasError('email', 'email')">
+                            EL Email debe tener un formato valido
+                        </ng-container>
+                    </div>
+                </div>
+        
+                <div class="mb-2">
+                    <label for="password">Password</label>
+                    <input id="password" placeholder="Genero" class="form-control" formControlName="password">
+                    <div class="invalid-feedback d-block">
+                        <ng-container *ngIf="controlHasError('password','required')">
+                            El Password es obligatorio
+                        </ng-container>
+                        <ng-container *ngIf="controlHasError('password','minlength')">
+                            El Password debe tener minimo 5 caracteres
+                        </ng-container>
+                        <ng-container *ngIf="controlHasError('password','pattern')">
+                            El Password no puede tener caracteres diferentes a:  a-z 0-9 - +
+                        </ng-container>
+                    </div>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="role">Role</label>
+                    <input id="role" type="text" placeholder="role" class="form-control" formControlName="role">
+                    <div class="invalid-feedback d-block">
+                        <ng-container *ngIf="controlHasError('role', 'required')">
+                            El role es obligatorio
+                        </ng-container>
+                        
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="filePerfil">Imagen Perfil</label>
+                    <input id="filePerfil" type="file" class="form-control" accept=".png, .jpg, .jpeg" (change)="uploadFile($event,'filePerfil')">
+        
+                    <div class="small text-muted" *ngIf="form.controls['filePerfil'].value ">
+                        Ruta actual: {{ form.controls['filePerfil'].value }}
+                    </div>
+        
+                    <div class="invalid-feedback d-block">
+                        <ng-container *ngIf="controlHasError('filePerfil', 'required')">
+                            La imagen es obligatorio
+                        </ng-container>
+                        
+                    </div>
+                </div>
+        
+        
+                <div class="text-end mt-3">
+                    <button  type="button" class="btn btn-light" routerLink="/usuarios">
+                        Cancelar
+                    </button>
+                    <button class="btn btn-primary ms-2" >
+                        {{ usuario ? 'ACTUALIZAR': 'CREAR' }}  USUARIO
+                    </button>
+                </div>
+            </form>
         </div>
-
-        <div class="mb-2">
-            <label for="email">Email</label>
-            <input id="email" type="email" placeholder="email" class="form-control" formControlName="email">
-            <div class="invalid-feedback d-block">
-                <ng-container *ngIf="controlHasError('email', 'required')">
-                    EL Email es obligatorio
-                </ng-container>
-                <ng-container *ngIf="controlHasError('email', 'email')">
-                    EL Email debe tener un formato valido
-                </ng-container>
+        <div class="col-md-4 text-center">
+            <div *ngIf="form.controls['filePerfil'].value; else noFilePerfilMessage">
+                <div>Portada</div>
+                <img [src]="'http://localhost:8080/api/media/' + form.controls['filePerfil'].value" alt="" class="img-thumbnail">
             </div>
+            <ng-template #noFilePerfilMessage> 
+                Sin portada
+            </ng-template>
+            
         </div>
-
-        <div class="mb-2">
-            <label for="password">Password</label>
-            <input id="password" placeholder="Genero" class="form-control" formControlName="password">
-            <div class="invalid-feedback d-block">
-                <ng-container *ngIf="controlHasError('password','required')">
-                    El Password es obligatorio
-                </ng-container>
-                <ng-container *ngIf="controlHasError('password','minlength')">
-                    El Password debe tener minimo 5 caracteres
-                </ng-container>
-                <ng-container *ngIf="controlHasError('password','pattern')">
-                    El Password no puede tener caracteres diferentes a:  a-z 0-9 - +
-                </ng-container>
-            </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="role">Role</label>
-            <input id="role" type="text" placeholder="role" class="form-control" formControlName="role">
-            <div class="invalid-feedback d-block">
-                <ng-container *ngIf="controlHasError('role', 'required')">
-                    El role es obligatorio
-                </ng-container>
-                
-            </div>
-        </div>
-        <div class="mb-3">
-            <label for="filePerfil">Imagen Perfil</label>
-            <input id="filePerfil" type="file" class="form-control" accept=".png, .jpg, .jpeg" (change)="uploadFile($event,'filePerfil')">
-
-            <div class="small text-muted" *ngIf="form.controls['filePerfil'].value ">
-                Ruta actual: {{ form.controls['filePerfil'].value }}
-            </div>
-
-            <div class="invalid-feedback d-block">
-                <ng-container *ngIf="controlHasError('filePerfil', 'required')">
-                    La imagen es obligatorio
-                </ng-container>
-                
-            </div>
-        </div>
-
-
-        <div class="text-end mt-3">
-            <button  type="button" class="btn btn-light" routerLink="/usuarios">
-                Cancelar
-            </button>
-            <button class="btn btn-primary ms-2" >
-                {{ usuario ? 'ACTUALIZAR': 'CREAR' }}  USUARIO
-            </button>
-        </div>
-    </form>
+    
+    </div>
 </div>

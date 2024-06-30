@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../usuario-list/usuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Usuario } from '../interfaces/usuairo.interface';
 
 @Component({
   selector: 'app-usuario-form',
@@ -11,13 +12,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UsuarioFormComponent implements OnInit{
 
   errors: string [] = [];
+  usuario? :Usuario;
 
-  form:FormGroup = this.fb.group({
-    nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(45)]],
-    email:['', [Validators.required, Validators.email]],
-    password:[,[Validators.required, Validators.pattern('[a-z0-9- ]+'), Validators.minLength(5)]],
-    role:[,[Validators.required]]
-  })
+  form?: FormGroup;
 
   constructor(
     private fb : FormBuilder,
@@ -28,30 +25,54 @@ export class UsuarioFormComponent implements OnInit{
 
 
   ngOnInit(): void {
-    const usuarioId = this.route.snapshot.paramMap.get('id')!;
+    const usuarioId = this.route.snapshot.paramMap.get('id');
 
-    this.usuarioService.get(parseInt(usuarioId))
+    if(usuarioId){
+      this.usuarioService.get(parseInt(usuarioId))
       .subscribe( usuario => {
-        console.log('usuario', usuario);
-      });
+       // console.log('usuario', usuario);
+       this.usuario = usuario;
 
+
+        this.form = this.fb.group({
+          nombre:[usuario.nombre,[Validators.required, Validators.minLength(3), Validators.maxLength(45)]],
+          email:[usuario.email, [Validators.required, Validators.email]],
+          password:[usuario.password,[Validators.required, Validators.pattern('[a-z0-9- ]+'), Validators.minLength(5)]],
+          role:[usuario.role,[Validators.required]]
+        });
+      });
+    }else{
+      this.form = this.fb.group({
+          nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(45)]],
+          email:['', [Validators.required, Validators.email]],
+          password:[,[Validators.required, Validators.pattern('[a-z0-9- ]+'), Validators.minLength(5)]],
+          role:[,[Validators.required]]
+        });
+    }
   }
 
   
-
   controlHasError(control: string, error: string){
-    return this.form.controls[control].hasError(error);
+    return this.form!.controls[control].hasError(error);
   };
 
   save(){
-    if(this.form.invalid){
+    if(this.form!.invalid){
       return;
     }
 
-    let usuario = this.form.value;
+    let usuario = this.form!.value;
     usuario.filePerfil = "img.dumy"
 
-    this.usuarioService.create(usuario)
+    let request;
+
+    if(this.usuario){
+      request = this.usuarioService.update(this.usuario.id, usuario)
+    }else{
+      request = this.usuarioService.create(usuario);
+    }
+
+    request
       .subscribe({
         next:usuario=>{
           this.router.navigate(['/usuarios']);

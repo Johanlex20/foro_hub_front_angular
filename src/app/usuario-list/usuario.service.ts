@@ -24,6 +24,11 @@ export class UsuarioService {
     return this.http.post<Usuario>('http://localhost:8080/api/usuario', usuario);
   }
 
+  update(id: number , usuario: Usuario){
+    return this.http.put(`http://localhost:8080/api/usuario/${id}`, usuario);
+  }
+
+
   delete(usuario: Usuario){
     return this.http.delete(`http://localhost:8080/api/usuario/${usuario.id}`);
   }

@@ -23,7 +23,7 @@ const routes: Routes = [
     path:'usuarios',
     component: UsuarioListComponent
   },{
-    path:'new/usuario',
+    path:'usuario/new',
     component: UsuarioFormComponent
   },
   {

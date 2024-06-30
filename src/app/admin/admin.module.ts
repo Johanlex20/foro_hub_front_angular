@@ -7,6 +7,7 @@ import { UsuarioListComponent } from './components/usuario-list/usuario-list.com
 import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -22,7 +23,8 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
 
   ]
 })

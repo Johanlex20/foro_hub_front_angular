@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario, UsuarioPage } from '../../../interfaces/usuairo.interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,28 +14,28 @@ export class UsuarioService {
 
 
   paginate(){
-    return this.http.get<UsuarioPage>('http://localhost:8080/api/usuario');
+    return this.http.get<UsuarioPage>(`${environment.apiBase}/usuario`);
   }
 
   get(id: number){
-    return this.http.get<Usuario>(`http://localhost:8080/api/usuario/${id}`);
+    return this.http.get<Usuario>(`${environment.apiBase}/usuario/${id}`);
   }
 
   create(usuario: Usuario){
-    return this.http.post<Usuario>('http://localhost:8080/api/usuario', usuario);
+    return this.http.post<Usuario>(`${environment.apiBase}/usuario`, usuario);
   }
 
   update(id: number , usuario: Usuario){
-    return this.http.put(`http://localhost:8080/api/usuario/${id}`, usuario);
+    return this.http.put(`${environment.apiBase}/usuario/${id}`, usuario);
   }
 
 
   delete(usuario: Usuario){
-    return this.http.delete(`http://localhost:8080/api/usuario/${usuario.id}`);
+    return this.http.delete(`${environment.apiBase}/usuario/${usuario.id}`);
   }
 
   uploadFile(formData: FormData){
-    return this.http.post('http://localhost:8080/api/media/upload', formData);
+    return this.http.post(`${environment.apiBase}/media/upload`, formData);
   }
 
 }

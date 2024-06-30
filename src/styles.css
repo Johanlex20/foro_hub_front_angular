@@ -23,6 +23,14 @@ body {
     max-height: 64px;
 }
 
+.img-redonda {
+    width: 64px; 
+    height: 64px; 
+    border-radius: 50%; 
+    object-fit: cover;  /* Esto asegura que la imagen se ajuste bien dentro del contenedor redondo */
+}
+
+
 
 .spacer {
     flex: 1 1 auto;

@@ -23,7 +23,8 @@
                     <div class="fw-bold mb-2">
                         {{ usuario.nombre }}
                     </div>
-                    <img [src]="usuario.filePerfil | apiImg" alt="" class="mw-64px">  <!-- 'http://localhost:8080/api/media/' +   -->
+                     <!--<img [src]="usuario.filePerfil | apiImg" alt="" class="img-redonda"> <!-- 'http://localhost:8080/api/media/' +  --> 
+                     <img [src]="usuario.filePerfil ? (usuario.filePerfil | apiImg) : 'assets/images/default-profile.jpg'" alt="" class="img-redonda"> 
                 </div>
             </td>
         </ng-container>

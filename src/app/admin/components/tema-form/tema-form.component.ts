@@ -62,6 +62,7 @@ export class TemaFormComponent implements OnInit {
 
   save() {
     if (this.form!.invalid) {
+      this.form?.markAllAsTouched();
       return;
     }
 

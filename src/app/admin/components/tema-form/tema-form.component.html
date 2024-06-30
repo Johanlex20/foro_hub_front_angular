@@ -72,10 +72,10 @@
         </mat-form-field>
 
         <div class="text-end mt-3">
-            <button  type="button" class="btn btn-light" routerLink="/admin/tema">
-                Cancelar
+            <button mat-raised-button type="button" routerLink="/admin/tema"> <!-- class="btn btn-light" -->
+                CANCELAR
             </button>
-            <button class="btn btn-primary ms-2">
+            <button mat-raised-button color="primary" class="ms-2"> <!--  class="btn btn-primary ms-2"  -->
                 {{ tema ? 'ACTUALIZAR' : 'CREAR' }} TEMA
             </button>
         </div>

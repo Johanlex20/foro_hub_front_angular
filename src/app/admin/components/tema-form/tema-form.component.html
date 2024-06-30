@@ -9,11 +9,12 @@
         </ul>
     </div>
 
+
     <form class="mt-5" [formGroup]="form" (ngSubmit)="save()" autocomplete="off">
-        <div class="mb-2">
-            <label for="title">Título</label>
-            <input id="title" type="text" placeholder="Título" class="form-control" formControlName="titulo">
-            <div class="invalid-feedback d-block">
+        <mat-form-field class="mb-3 w-100" appearance="outline">
+            <mat-label for="titulo">Título</mat-label>
+            <input matInput id="titulo" type="text" placeholder="Título" formControlName="titulo"> <!-- class="form-control"   -->
+            <mat-error class="invalid-feedback d-block">
                 <ng-container *ngIf="controlHasError('titulo', 'required')">
                     Titulo es obligatorio
                 </ng-container>
@@ -23,13 +24,13 @@
                 <ng-container *ngIf="controlHasError('titulo', 'maxlength')">
                     Titulo puede tener 100 caracteres maximo
                 </ng-container>
-            </div>
-        </div>
+            </mat-error>
+        </mat-form-field>
 
-        <div class="mb-2">
-            <label for="slug">Mensaje</label>
-            <textarea id="slug" type="text" placeholder="Mensaje" class="form-control" formControlName="mensaje"></textarea>
-            <div class="invalid-feedback d-block">
+        <mat-form-field class="mb-3 w-100" appearance="outline">
+            <mat-label for="mensaje">Mensaje</mat-label>
+            <textarea matInput id="mensaje" type="text" placeholder="Mensaje" formControlName="mensaje" rows="8"></textarea>
+            <mat-error class="invalid-feedback d-block">
                 <ng-container *ngIf="controlHasError('mensaje', 'required')">
                     El Mensaje es obligatorio
                 </ng-container>
@@ -42,28 +43,33 @@
                 <ng-container *ngIf="controlHasError('mensaje', 'pattern')">
                     El Mensaje no puede tener caracteres entre:  a-z 0-9 - +
                 </ng-container>
-            </div>
-        </div>
+            </mat-error>
+        </mat-form-field>
 
-        <div class="mb-2">
-            <label for="descripcion">Genero</label>
-            <input id="descripcion" placeholder="Genero" class="form-control" formControlName="genero">
-            <div class="invalid-feedback d-block">
-                <ng-container *ngIf="controlHasError('genero','required')">
-                    Genero es obligatorio
+        <mat-form-field class="mb-3 w-100" appearance="outline">
+            <mat-label for="genero">Genero</mat-label>
+            <mat-select id="genero" type="text" placeholder="Seleccione categoria" formControlName="genero"> <!-- class="form-control"   se quita ya que usamos angular material-->
+                <mat-option value="TECNOLOGIA">TECNOLOGIA</mat-option>
+                <mat-option value="DEPORTE">DEPORTE</mat-option>
+                <mat-option value="COCINA">COCINA</mat-option>
+                <mat-option value="VIDEO_JUEGOS">VIDEO JUEGOS</mat-option>
+            </mat-select>
+            <mat-error class="invalid-feedback d-block">
+                <ng-container *ngIf="controlHasError('genero', 'required')">
+                    La categoria es obligatoria
                 </ng-container>
-            </div>
-        </div>
+            </mat-error>
+        </mat-form-field>
 
-        <div class="mb-2">
-            <label for="precio">Usuario Id</label>
-            <input id="precio" type="number" step="0.01" placeholder="usuarioId" class="form-control" formControlName="usuarioId">
-            <div class="invalid-feedback d-block">
+        <mat-form-field class="mb-3 w-100" appearance="outline">
+            <mat-label for="usuarioId">Usuario Id</mat-label>
+            <input matInput id="usuarioId" type="number" placeholder="usuarioId" formControlName="usuarioId">
+            <mat-error class="invalid-feedback d-block">
                 <ng-container *ngIf="controlHasError('usuarioId','required')">
                     ID usuairo es obligatoria
                 </ng-container>
-            </div>
-        </div>
+            </mat-error>
+        </mat-form-field>
 
         <div class="text-end mt-3">
             <button  type="button" class="btn btn-light" routerLink="/admin/tema">
@@ -74,4 +80,5 @@
             </button>
         </div>
     </form>
+    
 </div>

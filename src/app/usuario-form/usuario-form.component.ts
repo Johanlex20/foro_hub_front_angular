@@ -13,7 +13,6 @@ export class UsuarioFormComponent implements OnInit{
 
   errors: string [] = [];
   usuario? :Usuario;
-
   form?: FormGroup;
 
   constructor(
@@ -38,15 +37,17 @@ export class UsuarioFormComponent implements OnInit{
           nombre:[usuario.nombre,[Validators.required, Validators.minLength(3), Validators.maxLength(45)]],
           email:[usuario.email, [Validators.required, Validators.email]],
           password:[usuario.password,[Validators.required, Validators.pattern('[a-z0-9- ]+'), Validators.minLength(5)]],
-          role:[usuario.role,[Validators.required]]
+          role:[usuario.role,[Validators.required]],
+          filePerfil:[usuario.filePerfil, [Validators.required]],
         });
       });
     }else{
       this.form = this.fb.group({
-          nombre:['',[Validators.required, Validators.minLength(3), Validators.maxLength(45)]],
-          email:['', [Validators.required, Validators.email]],
+          nombre:[,[Validators.required, Validators.minLength(3), Validators.maxLength(45)]],
+          email:[, [Validators.required, Validators.email]],
           password:[,[Validators.required, Validators.pattern('[a-z0-9- ]+'), Validators.minLength(5)]],
-          role:[,[Validators.required]]
+          role:[,[Validators.required]],
+          filePerfil:[, [Validators.required]],
         });
     }
   }
@@ -56,13 +57,29 @@ export class UsuarioFormComponent implements OnInit{
     return this.form!.controls[control].hasError(error);
   };
 
+
+  uploadFile(event: any, control: string){
+    const file = event.target.files[0];
+
+    if(file){
+      const formData = new FormData();
+      formData.append('file', file);
+
+      this.usuarioService.uploadFile(formData)
+      .subscribe((response:any) => {
+        this.form!.controls[control].setValue(response.path);
+      });
+    }
+  }
+
+
   save(){
     if(this.form!.invalid){
       return;
     }
 
     let usuario = this.form!.value;
-    usuario.filePerfil = "img.dumy"
+    //usuario.filePerfil = "img.dumy"
 
     let request;
 

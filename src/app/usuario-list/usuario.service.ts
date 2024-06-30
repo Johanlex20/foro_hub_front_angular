@@ -33,4 +33,8 @@ export class UsuarioService {
     return this.http.delete(`http://localhost:8080/api/usuario/${usuario.id}`);
   }
 
+  uploadFile(formData: FormData){
+    return this.http.post('http://localhost:8080/api/media/upload', formData);
+  }
+
 }

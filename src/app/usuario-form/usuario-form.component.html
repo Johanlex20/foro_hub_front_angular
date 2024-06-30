@@ -66,6 +66,17 @@
                 
             </div>
         </div>
+        <div class="mb-3">
+            <label for="filePerfil">Imagen Perfil</label>
+            <input id="filePerfil" type="file" class="form-control" accept=".png, .jpg, .jpeg" (change)="uploadFile($event,'filePerfil')">
+            <div class="invalid-feedback d-block">
+                <ng-container *ngIf="controlHasError('filePerfil', 'required')">
+                    La imagen es obligatorio
+                </ng-container>
+                
+            </div>
+        </div>
+
 
         <div class="text-end mt-3">
             <button  type="button" class="btn btn-light" routerLink="/usuarios">

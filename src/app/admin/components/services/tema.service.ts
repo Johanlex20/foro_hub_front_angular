@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { Tema, TemaPage } from '../interfaces/tema.interface';
+import { Tema, TemaPage } from '../../../interfaces/tema.interface';
 
 @Injectable({
   providedIn: 'root'

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TemaService } from '../temas-list/tema.service';
+import { TemaService } from '../services/tema.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Tema } from '../interfaces/tema.interface';
+import { Tema } from '../../../interfaces/tema.interface';
 
 @Component({
   selector: 'app-tema-form',
@@ -78,7 +78,7 @@ export class TemaFormComponent implements OnInit {
     request
       .subscribe({
         next: tema => {
-          this.router.navigate(['/tema']);
+          this.router.navigate(['/admin/tema']);
         },
         error: error => {
           if (error.error.status === 400) {

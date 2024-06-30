@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UsuarioService } from '../usuario-list/usuario.service';
+import { UsuarioService } from '../services/usuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Usuario } from '../interfaces/usuairo.interface';
+import { Usuario } from '../../../interfaces/usuairo.interface';
 
 @Component({
   selector: 'app-usuario-form',
@@ -92,7 +92,7 @@ export class UsuarioFormComponent implements OnInit{
     request
       .subscribe({
         next:usuario=>{
-          this.router.navigate(['/usuarios']);
+          this.router.navigate(['/admin/usuarios']);
         },
         error: error =>{
           if(error.error.status === 400){

@@ -1,7 +1,7 @@
 <h1>Lista de temas</h1>
 
 <div class="text-end">
-    <button class="btn btn-primary" routerLink="/tema/new">
+    <button class="btn btn-primary" routerLink="/admin/tema/new">
         NUEVO TEMA
     </button>
 </div>
@@ -48,10 +48,10 @@
                 {{ tema.activo }}
             </td>
             <td>
-                <a [routerLink]="['/tema/', tema.id, 'edit']">
+                <a [routerLink]="['/admin/tema/', tema.id, 'edit']">
                     Editar
                 </a>
-                <a href="/tema" class="ms-2" (click)="deleteTema(tema)" >
+                <a href="/admin/tema" class="ms-2" (click)="deleteTema(tema)" >
                     Eliminar
                 </a>
             </td>

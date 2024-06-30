@@ -1,7 +1,7 @@
 <h1>Lista de usuarios</h1>
 
 <div class="text-end">
-    <button class="btn btn-primary" routerLink="/usuario/new">
+    <button class="btn btn-primary" routerLink="/admin/usuario/new">
         NUEVO USUARIO
     </button>
 </div>
@@ -43,10 +43,10 @@
                 {{ usuario.activo }}
             </td>
             <td>
-                <a [routerLink]="['/usuario/', usuario.id, 'edit']">
+                <a [routerLink]="['/admin/usuario/', usuario.id, 'edit']">
                     Editar
                 </a>
-                <a href="/usuarios" class="ms-2" (click)="deleteUsuario(usuario)">
+                <a href="/admin/usuarios" class="ms-2" (click)="deleteUsuario(usuario)">
                     Eliminar
                 </a>
             </td>

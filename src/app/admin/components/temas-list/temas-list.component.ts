@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TemaService } from './tema.service';
-import { Tema } from '../interfaces/tema.interface';
+import { TemaService } from '../services/tema.service';
+import { Tema } from '../../../interfaces/tema.interface';
 
 @Component({
   selector: 'app-temas-list',

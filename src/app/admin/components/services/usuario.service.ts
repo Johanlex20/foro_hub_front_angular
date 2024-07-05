@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario, UsuarioPage } from '../../../interfaces/usuairo.interface';
 import { environment } from 'src/environments/environment';
@@ -13,8 +13,13 @@ export class UsuarioService {
   ) {}
 
 
-  paginate(){
-    return this.http.get<UsuarioPage>(`${environment.apiBase}/usuario`);
+  paginate(size: number = 5, page: number = 0){
+    let params = new HttpParams();
+    params = params.append('size', size);
+    params = params.append('page', page);
+    params = params.append('sort', 'createdAt,desc');
+
+    return this.http.get<UsuarioPage>(`${environment.apiBase}/usuario`, {params});
   }
 
   get(id: number){

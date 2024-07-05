@@ -77,6 +77,9 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColums"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColums;"></tr>
-    
     </table>
+
+    <mat-paginator [length]="usuarioPage.totalElements" [pageSize]="usuarioPage.size" (page)="paginateUsuario($event)" [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+
 </div>

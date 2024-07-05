@@ -41,8 +41,13 @@ export class UsuarioListComponent implements OnInit {
     }
   }
 
-  UsuarioPage(event: PageEvent){
-    console.log('event', event);
+  paginateUsuario(event: PageEvent){
+    const { pageIndex, pageSize } = event;
+    
+    this.usuarioService.paginate(pageSize, pageIndex)
+      .subscribe(usuarioPage => {
+        this.usuarioPage = usuarioPage;
+      });
   }
 
 

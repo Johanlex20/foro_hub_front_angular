@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TemaService } from '../services/tema.service';
-import { Tema } from '../../../interfaces/tema.interface';
+import { Tema, TemaPage } from '../../../interfaces/tema.interface';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-temas-list',
@@ -9,7 +10,10 @@ import { Tema } from '../../../interfaces/tema.interface';
 })
 export class TemasListComponent implements OnInit {
 
-  temas?: Tema[];
+  temaPage?: TemaPage;
+  displayedColums =[
+    'id','mensaje','genero','usuario','createdAt','activo','actions'
+  ]
 
   constructor(
     private temaService: TemaService
@@ -22,9 +26,10 @@ export class TemasListComponent implements OnInit {
   loadTemas(){
     this.temaService.paginate()
     .subscribe(temaPage => {
-      this.temas = temaPage.content;
-    })
+      this.temaPage = temaPage;
+    });
   }
+
 
   deleteTema(tema:Tema){
     if(confirm('Esta seguro de eliminar el tema?')){
@@ -34,6 +39,11 @@ export class TemasListComponent implements OnInit {
       });
     }
   }
+
+  TemaPage(event: PageEvent){
+    console.log('event', event);
+  }
+
 
 
 

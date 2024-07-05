@@ -1,60 +1,90 @@
 <h1>Lista de temas</h1>
 
-<div class="text-end">
-    <button class="btn btn-primary" routerLink="/admin/tema/new">
+<div class="text-end mb-5">
+    <button mat-raised-button color="primary" routerLink="/admin/tema/new"> <!--  class="btn btn-primary"  -->
         NUEVO TEMA
     </button>
 </div>
 
-<table class="table table-hover mt-5">
-    <thead>
-        <tr>
-            <th> ID TEMA </th>
-            <th> MENSAJE </th>
-            <th> GENERO </th>
-            <th> USUARIO ID </th>
-            <th> NOMBRE USUARIO </th>
-            <th> FECHA CREACION </th>
-            <th> ACTIVO </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let tema of temas">
-            <td>
-                <div>{{ tema.id }}</div>
+<div *ngIf="temaPage">
+    <table mat-table [dataSource]="temaPage.content"> ,<!-- class="table table-hover mt-5" -->
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <td mat-cell *matCellDef="let tema">
+                {{ tema.id }}
             </td>
-            <td>
-                <div  class="fw-bold">
-                    {{ tema.titulo }}
+        </ng-container>
+
+        <ng-container matColumnDef="mensaje">
+            <th mat-header-cell *matHeaderCellDef>Tema</th>
+            <td mat-cell *matCellDef="let tema">
+                <div class="d-flex flex-column align-items-star">
+                    <div class="fw-bold mb-2">
+                        {{ tema.titulo }}
+                    </div>
+                     <div>
+                        {{ tema.mensaje }}
+                     </div> 
                 </div>
-                <p>
-                    {{ tema.mensaje }}
-                </p>
             </td>
-            <td>
+        </ng-container>
+        
+        <ng-container matColumnDef="genero">
+            <th mat-header-cell *matHeaderCellDef>Genero</th>
+            <td mat-cell *matCellDef="let tema">
                 {{ tema.genero }}
             </td>
-            <td>
-                {{ tema.usuarioId }}
+        </ng-container>
+
+        <ng-container matColumnDef="usuario" >
+            <th mat-header-cell *matHeaderCellDef>Usuario Id</th>
+            <td mat-cell *matCellDef="let tema">
+                <div class="d-flex ">
+                    <div class="fw-bold mb-2">
+                        {{ tema.usuarioId + " : "}}
+                    </div>
+                     <div>
+                        {{tema.usuarioNombre }}
+                     </div> 
+                </div>
             </td>
-            <td>
-                {{ tema.usuarioNombre }}
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef>Fecha</th>
+            <td mat-cell *matCellDef="let tema">
+                {{ tema.createdAt | date: 'dd/MM/yyyy'}}
             </td>
-            <td>
-                {{ tema.createdAt | date: 'dd/MM/yyyy' }}
+        </ng-container>
+
+        <ng-container matColumnDef="activo" >
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let tema">
+                <div class="d-flex flex-column align-items-center">
+                    <mat-icon *ngIf="tema.activo" class="icon-verde" matTooltip="Tema activo">check_circle</mat-icon>
+                    <mat-icon *ngIf="!tema.activo" class="icon-rojo" matTooltip="Tema inactivo" >cancel</mat-icon>
+                </div>
             </td>
-            <td>
-                {{ tema.activo }}
+        </ng-container>
+
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let tema">
+                <div class="d-flex flex-nowrap">
+                    <button mat-icon-button [routerLink]="['/admin/tema/', tema.id, 'edit']" color="primary" matTooltip="Editar Tema">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button  mat-icon-button [routerLink]="['/admin/tema']" class="ms-2" (click)="deleteTema(tema)" color="warn" matTooltip="Eliminar Tema">
+                       <mat-icon>delete</mat-icon> 
+                    </button>  <!-- href="/admin/usuarios"  -->
+                </div>
             </td>
-            <td>
-                <a [routerLink]="['/admin/tema/', tema.id, 'edit']">
-                    Editar
-                </a>
-                <a href="/admin/tema" class="ms-2" (click)="deleteTema(tema)" >
-                    Eliminar
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColums"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColums;"></tr>
+
+    </table>
+</div>

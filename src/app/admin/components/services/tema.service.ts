@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Tema, TemaPage } from '../../../interfaces/tema.interface';
 
@@ -17,8 +17,13 @@ export class TemaService implements OnInit {
   }
 
 
-  paginate(){
-    return this.http.get<TemaPage>('http://localhost:8080/api/topicos');
+  paginate(size: number = 5, page: number = 0){
+    let params = new HttpParams();
+    params = params.append('size', size);
+    params = params.append('page', page);
+    params = params.append('sort', 'createdAt,desc');
+
+    return this.http.get<TemaPage>('http://localhost:8080/api/topicos', {params});
   }
 
   create(tema: Tema){

@@ -23,13 +23,13 @@
                     <div class="fw-bold mb-2">
                         {{ tema.titulo }}
                     </div>
-                     <div>
+                    <div>
                         {{ tema.mensaje }}
-                     </div> 
+                    </div>
                 </div>
             </td>
         </ng-container>
-        
+
         <ng-container matColumnDef="genero">
             <th mat-header-cell *matHeaderCellDef>Genero</th>
             <td mat-cell *matCellDef="let tema">
@@ -37,16 +37,16 @@
             </td>
         </ng-container>
 
-        <ng-container matColumnDef="usuario" >
+        <ng-container matColumnDef="usuario">
             <th mat-header-cell *matHeaderCellDef>Usuario Id</th>
             <td mat-cell *matCellDef="let tema">
                 <div class="d-flex ">
                     <div class="fw-bold mb-2">
                         {{ tema.usuarioId + " : "}}
                     </div>
-                     <div>
+                    <div>
                         {{tema.usuarioNombre }}
-                     </div> 
+                    </div>
                 </div>
             </td>
         </ng-container>
@@ -58,12 +58,12 @@
             </td>
         </ng-container>
 
-        <ng-container matColumnDef="activo" >
+        <ng-container matColumnDef="activo">
             <th mat-header-cell *matHeaderCellDef>Estado</th>
             <td mat-cell *matCellDef="let tema">
                 <div class="d-flex flex-column align-items-center">
                     <mat-icon *ngIf="tema.activo" class="icon-verde" matTooltip="Tema activo">check_circle</mat-icon>
-                    <mat-icon *ngIf="!tema.activo" class="icon-rojo" matTooltip="Tema inactivo" >cancel</mat-icon>
+                    <mat-icon *ngIf="!tema.activo" class="icon-rojo" matTooltip="Tema inactivo">cancel</mat-icon>
                 </div>
             </td>
         </ng-container>
@@ -73,12 +73,14 @@
             <th mat-header-cell *matHeaderCellDef>Acciones</th>
             <td mat-cell *matCellDef="let tema">
                 <div class="d-flex flex-nowrap">
-                    <button mat-icon-button [routerLink]="['/admin/tema/', tema.id, 'edit']" color="primary" matTooltip="Editar Tema">
+                    <button mat-icon-button [routerLink]="['/admin/tema/', tema.id, 'edit']" color="primary"
+                        matTooltip="Editar Tema">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button  mat-icon-button [routerLink]="['/admin/tema']" class="ms-2" (click)="deleteTema(tema)" color="warn" matTooltip="Eliminar Tema">
-                       <mat-icon>delete</mat-icon> 
-                    </button>  <!-- href="/admin/usuarios"  -->
+                    <button mat-icon-button [routerLink]="['/admin/tema']" class="ms-2" (click)="deleteTema(tema)"
+                        color="warn" matTooltip="Eliminar Tema">
+                        <mat-icon>delete</mat-icon>
+                    </button> <!-- href="/admin/usuarios"  -->
                 </div>
             </td>
         </ng-container>
@@ -87,4 +89,11 @@
         <tr mat-row *matRowDef="let row; columns: displayedColums;"></tr>
 
     </table>
+
+
+    <mat-paginator [length]="temaPage.totalElements" [pageSize]="temaPage.size" (page)="paginateTemas($event)" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+    aria-label="Temas por pagina">
+    </mat-paginator>
+
+
 </div>

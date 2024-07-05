@@ -40,11 +40,17 @@ export class TemasListComponent implements OnInit {
     }
   }
 
-  TemaPage(event: PageEvent){
-    console.log('event', event);
+  paginateTemas (event: PageEvent){
+    const { pageIndex, pageSize } = event;
+
+    this.temaService.paginate(pageSize, pageIndex)
+      .subscribe(temaPage => {
+        this.temaPage = temaPage;
+      });
   }
 
 
+  
 
 
 }

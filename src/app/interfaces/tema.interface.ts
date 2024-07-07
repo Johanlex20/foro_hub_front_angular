@@ -19,6 +19,7 @@ export interface Tema {
     genero:        Genero;
     usuarioId:     number;
     usuarioNombre: string;
+    filePerfil:    string | null;
     createdAt:     Date;
     updatedAt:     Date | null;
     activo:        boolean;

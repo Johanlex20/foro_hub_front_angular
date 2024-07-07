@@ -4,18 +4,22 @@ import { IndexComponent } from './components/index/index.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from "../shared/shared.module";
+import { TemasComponent } from './components/temas/temas.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 
 @NgModule({
     declarations: [
-        IndexComponent
+        IndexComponent,
+        TemasComponent
     ],
     imports: [
         CommonModule,
         HomeRoutingModule,
         MaterialModule,
-        SharedModule
+        SharedModule,
+        InfiniteScrollModule
     ]
 })
 export class HomeModule { }

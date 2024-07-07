@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Tema } from 'src/app/interfaces/tema.interface';
+import { Tema, TemaPage } from 'src/app/interfaces/tema.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,6 +14,15 @@ export class HomeService {
 
   getLastTemas(){
     return this.http.get<Tema[]>(`${environment.apiBase}/home/last-temas`);
+  }
+
+  paginate( page: number = 0, size: number = 10){
+    let params = new HttpParams();
+    params = params.append('size', size);
+    params = params.append('page', page);
+    params = params.append('sort', 'createdAt,desc');
+
+    return this.http.get<TemaPage>(`${environment.apiBase}/topicos`, {params});
   }
 
 }

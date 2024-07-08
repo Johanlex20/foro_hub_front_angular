@@ -1,0 +1,32 @@
+<mat-toolbar  class="custom-toolbar">
+    <span>FORO GOOD ONLINE</span>
+
+    <button mat-button routerLink="/" class="ms-3">
+        Inicio
+    </button>
+
+    <button mat-button routerLink="/temas" class="ms-3">
+        Temas
+    </button>
+
+    <button mat-button routerLink="/admin/tema" class="ms-3">
+        Administración Temas
+    </button>
+
+    <span class="spacer"></span> <!--enviar al final de la barra los botones -->
+
+    <button mat-button>
+        <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <mat-menu >
+        <button mat-button>
+            <mat-icon>logout</mat-icon> Cerrar sesión
+        </button>
+    </mat-menu>
+
+</mat-toolbar>
+
+<div class="py-2">
+    <router-outlet></router-outlet>
+</div>

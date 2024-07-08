@@ -7,6 +7,7 @@ import { SharedModule } from "../shared/shared.module";
 import { TemasComponent } from './components/temas/temas.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { TemaComponent } from './components/tema/tema.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 
 
@@ -14,7 +15,8 @@ import { TemaComponent } from './components/tema/tema.component';
     declarations: [
         IndexComponent,
         TemasComponent,
-        TemaComponent
+        TemaComponent,
+        LayoutComponent
     ],
     imports: [
         CommonModule,

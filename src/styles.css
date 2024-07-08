@@ -196,3 +196,12 @@ body {
     display: inline-block;
 }
 
+
+.custom-toolbar {
+    background-color: #09C2D2; /* Cambia este valor al color que prefieras */
+    color: white; /* Ajusta el color del texto si es necesario */
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

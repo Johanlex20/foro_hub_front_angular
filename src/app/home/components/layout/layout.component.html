@@ -9,21 +9,40 @@
         Temas
     </button>
 
-    <button mat-button routerLink="/admin/tema" class="ms-3">
+    <button mat-button routerLink="/admin/tema" class="ms-3" *ngIf="usuario?.role === 'ADMIN'">
         Administración Temas
     </button>
 
     <span class="spacer"></span> <!--enviar al final de la barra los botones -->
 
-    <button mat-button>
-        <mat-icon>account_circle</mat-icon>
-    </button>
-
-    <mat-menu >
-        <button mat-button>
-            <mat-icon>logout</mat-icon> Cerrar sesión
+    <ng-container *ngIf="usuario; else authButtons">
+        <button mat-button [matMenuTriggerFor]="userMenu">
+            <mat-icon>account_circle</mat-icon> {{ usuario.nombre }}
         </button>
-    </mat-menu>
+
+       <mat-menu #userMenu>
+        <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon> Cerrar Sesión
+        </button>
+       </mat-menu>
+
+    </ng-container>
+    
+
+    <ng-template #authButtons>
+        <button mat-button class="ms-2" routerLink="/auth/login">
+            <mat-icon>singup</mat-icon> Iniciar sesión
+        </button>
+        <button mat-raised-button color="primary" class="ms-2" routerLink="/auth/singup">
+            <mat-icon>logout</mat-icon> Registrarme
+        </button>
+    </ng-template>
+
+
+
+
+    
+    
 
 </mat-toolbar>
 

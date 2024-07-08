@@ -36,4 +36,19 @@ export class AuthService {
     );
   }
 
+  get usuario() {
+    return this._auth?.usuario;
+  }
+
+  get token() {
+    return this._auth?.token;
+  }
+
+  logout(){
+    localStorage.removeItem(authKey);
+    this._auth =  undefined;
+  }
+
+
+
 }

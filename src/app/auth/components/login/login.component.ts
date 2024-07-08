@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { SolicitudAutenticacion } from '../interfaces/auth.interfaces';
+import { SolicitudAutenticacion, Profile } from '../interfaces/auth.interfaces';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private snackBar: MatSnackBar
   ){}
 
 
@@ -23,8 +25,13 @@ export class LoginComponent {
       return;
     }
     this.authService.autenticacion(this.solicitudAutenticacion)
-    .subscribe(response =>{
-      console.log('r', response);
+    .subscribe(profile =>{
+      this.snackBar.open(`Bienvenido ${profile.nombre}`, 'Cerrar', { 
+        duration: 5000,
+        verticalPosition: 'bottom', // cambiar por sweetmessages
+        horizontalPosition: 'center'// cambiar por sweetmessages
+      });
+      this.router.navigate([''])
     });
   }
 

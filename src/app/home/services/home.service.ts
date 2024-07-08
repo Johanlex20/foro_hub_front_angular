@@ -25,4 +25,9 @@ export class HomeService {
     return this.http.get<TemaPage>(`${environment.apiBase}/topicos`, {params});
   }
 
+  get(id : number){
+    return this.http.get<Tema>(`${environment.apiBase}/topicos/${id}`);
+  }
+
+
 }

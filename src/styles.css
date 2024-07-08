@@ -53,14 +53,11 @@ body {
     color: #000000;
   }
 
-
-
-
   .mat-card-header {
     position: relative;
     display: flex;
     
-    padding: 10px;
+    padding: 5px;
     width: 100%;
   }
 
@@ -71,7 +68,6 @@ body {
   
     background-color: #ade613; /* Color de fondo */
    
-    
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 10px;
@@ -79,7 +75,89 @@ body {
 }
 
 
+.container-card{
+    width: 100%;
+    padding: 10px;
+    height: 100vh;
+    align-content: center;
+}
 
+.card-respuesta{
+    height: max-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+   
+}
+
+
+.card-formulario-respuesta{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.custom-mat-card{
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    height: max-content; /* Ajusta la altura automáticamente */
+    padding: 20px; /* Espaciado interno */
+    
+}
+
+.custom-mat-card .mat-card-header {
+    display: flex;
+    align-items: center;
+}
+
+.custom-mat-card .avatar-img img {
+    width: 150px; /* Ajusta el tamaño del avatar */
+    height: 150px; /* Ajusta el tamaño del avatar */
+    border-radius: 50%; /* Hace la imagen redonda */
+    margin-right: 10px; /* Espaciado a la derecha de la imagen */
+}
+
+.custom-mat-card .text-container {
+    flex: 1; /* Permite que el contenedor de texto ocupe el espacio restante */
+}
+
+.custom-mat-card .category-box {
+    /* background-color: #f5f5f5; Color de fondo de la caja de categoría */
+    top: -30px;
+    font-size: 15px;
+}
+
+.card-fondo-formulario-respuesta{
+    background-color: #ade613;
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
+.card-fondo-formulario-respuesta textarea{
+    border-radius: 10px;
+    border-color:#8ebb11;
+    height: auto;
+}
+
+
+.card-respuesta-tema{
+    margin-top: 10px;
+}
+
+
+.card-cliente-respuestas .card-respuesta-tema {
+    background-color:transparent;
+    border: 1px solid #ade613;
+    display: flex;
+  
+}
+
+
+.card-actions{
+    padding: none;
+}
 
 
 

@@ -6,13 +6,15 @@ import { MaterialModule } from '../material/material.module';
 import { SharedModule } from "../shared/shared.module";
 import { TemasComponent } from './components/temas/temas.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { TemaComponent } from './components/tema/tema.component';
 
 
 
 @NgModule({
     declarations: [
         IndexComponent,
-        TemasComponent
+        TemasComponent,
+        TemaComponent
     ],
     imports: [
         CommonModule,

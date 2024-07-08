@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './components/index/index.component';
 import { TemasComponent } from './components/temas/temas.component';
+import { TemaComponent } from './components/tema/tema.component';
 
 
 
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'temas',
     component: TemasComponent
+  },
+  {
+    path: 'tema/:id',
+    component: TemaComponent
   }
 ];
 

@@ -20,6 +20,7 @@ export interface Tema {
     usuarioId:     number;
     usuarioNombre: string;
     filePerfil:    string | null;
+    filePerfilRespuesta:   string | null;
     createdAt:     Date;
     updatedAt:     Date | null;
     activo:        boolean;
@@ -33,6 +34,7 @@ export enum Genero {
 }
 
 export interface Respuesta {
+filePerfilRespuesta: string;
     id:               number;
     mensajeRespuesta: string;
     usuarioId:        number;

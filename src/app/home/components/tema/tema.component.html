@@ -1,0 +1,88 @@
+<div class="container-card">
+    <div class="card-respuesta">
+        <div class="col-md-6">
+            <div class="card-cliente">
+                <mat-card class="custom-mat-card">
+                    <div class="mat-card-header">
+                        <div class="category-box"> {{ tema?.genero }} </div>
+
+                        <div class="avatar-img">
+                            <img class="img-redonda" [src]="tema?.filePerfil! | apiImg" [alt]="tema?.titulo">
+                        </div>
+                        <div class="text-container">
+                            <mat-card-title> {{tema?.titulo}} </mat-card-title>
+                            <mat-card-subtitle> {{tema?.usuarioNombre}}</mat-card-subtitle>
+                        </div>
+                    </div>
+
+                    <mat-card-content>
+                        <p>
+                            {{ tema?.mensaje }}
+                        </p>
+                    </mat-card-content>
+
+                    <mat-card-actions>
+                        <button mat-button>
+                            <mat-icon>thumb_up</mat-icon> LIKE
+                        </button>
+                        <button mat-button (click)="mostrarRespuestas()">
+                            <mat-icon>chat</mat-icon> RESPUESTAS
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+
+            <div  *ngIf="mostrarRespuestasState">
+                    <div class="card-cliente-respuestas" *ngFor="let respuesta of tema?.respuestas">
+                        <mat-card class="card-respuesta-tema">
+                            <div class="mat-card-header">
+        
+                                <div class="avatar-img">
+                                    <img class="img-redonda" [src]="respuesta.filePerfilRespuesta! | apiImg" [alt]="respuesta?.usuarioNombre">
+                                </div>
+        
+                                <div class="text-container">
+                                    <mat-card-subtitle class="fw-bold"> {{respuesta?.usuarioNombre}}</mat-card-subtitle>
+                                    <p>
+                                        {{ respuesta?.mensajeRespuesta }}
+                                    </p>
+                                </div> 
+                            </div>
+        
+                            <mat-card-actions class="card-actions">
+                                <button mat-button>
+                                    <mat-icon>thumb_up</mat-icon> LIKE
+                                </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <ng-template #noRespuestas>
+                        <p>Aún no hay respuestas</p>
+                    </ng-template>
+               
+            </div>
+
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="card-fondo-formulario-respuesta">
+                <div class="card-formulario-respuesta">
+                    <h1 class="fw-bold"> <mat-icon>rocket_launch</mat-icon> COMENTAR <mat-icon>rocket_launch</mat-icon>
+                    </h1>
+
+                    <textarea id="mensaje" class="w-100" rows="10" type="text"
+                        placeholder="Ingresa tu respuesta"></textarea>
+
+                    <div class="mt-5">
+                        <button mat-button>
+                            <mat-icon>chat</mat-icon> ENVIAR COMENTARIO
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

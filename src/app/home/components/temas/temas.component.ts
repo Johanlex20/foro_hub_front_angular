@@ -28,7 +28,7 @@ export class TemasComponent implements OnInit{
   }
   
   loadMoreTemas(){
-    console.log('scrolled')
+    //console.log('scrolled')
     if(!this.last){
       this.homeService.paginate( this.page + 1)
       .subscribe(temaPage =>{

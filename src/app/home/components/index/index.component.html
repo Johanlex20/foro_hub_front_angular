@@ -20,7 +20,7 @@
               <img class="img-redonda" [src]="tema.filePerfil! | apiImg" [alt]="tema.titulo">
           </div>
           <div class="text-container">
-            <mat-card-title> <a [routerLink]="['/tema', tema.mensaje]"> {{ tema.titulo | slice: 0:20 }} ...</a> </mat-card-title>
+            <mat-card-title> <a [routerLink]="['/tema/', tema.id]"> {{ tema.titulo | slice: 0:20 }} ...</a> </mat-card-title>
             <mat-card-subtitle>{{ tema.usuarioNombre }}</mat-card-subtitle>
           </div>
         </div>

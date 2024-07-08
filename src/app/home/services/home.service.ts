@@ -22,7 +22,7 @@ export class HomeService {
     params = params.append('page', page);
     params = params.append('sort', 'createdAt,desc');
 
-    return this.http.get<TemaPage>(`${environment.apiBase}/topicos`, {params});
+    return this.http.get<TemaPage>(`${environment.apiBase}/home/topicos`, {params});
   }
 
   get(id : number){

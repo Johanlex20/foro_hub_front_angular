@@ -4,7 +4,7 @@
     <div infiniteScroll (scrolled)="loadMoreTemas()">
         <div class="row">
             <div class="col-md-4 mb-5" *ngFor="let tema of temas">
-
+<!-- 
                 <mat-card >
                   <div class= "mat-card-header">
                       <div class="category-box">{{ tema.genero }}</div>
@@ -33,7 +33,9 @@
                     </button>
                   </mat-card-actions>
                 </mat-card>
-          
+-->          
+                <app-tema-card [tema]="tema"></app-tema-card>
+
               </div>
         </div>
     </div>

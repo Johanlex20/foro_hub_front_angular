@@ -24,7 +24,7 @@ export class TemaService implements OnInit {
     params = params.append('page', page);
     params = params.append('sort', 'createdAt,desc');
 
-    return this.http.get<TemaPage>(`${environment.apiBase}/topicos`, {params});
+    return this.http.get<TemaPage>(`${environment.apiBase}/admin/topicos`, {params});
   }
 
   create(tema: Tema){
@@ -32,7 +32,7 @@ export class TemaService implements OnInit {
   }
 
   update(id: number, tema: Tema){
-    return this.http.put<Tema>(`${environment.apiBase}/topicos/${id}`, tema);
+    return this.http.put<Tema>(`${environment.apiBase}/admin/topicos/${id}`, tema);
   }
 
   get(id:number){
@@ -40,7 +40,7 @@ export class TemaService implements OnInit {
   }
 
   delete(tema: Tema){
-    return this.http.delete(`${environment.apiBase}/topicos/${tema.id}`);
+    return this.http.delete(`${environment.apiBase}/admin/topicos/${tema.id}`);
   }
 
 }

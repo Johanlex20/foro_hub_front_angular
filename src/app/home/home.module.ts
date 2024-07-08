@@ -8,6 +8,7 @@ import { TemasComponent } from './components/temas/temas.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { TemaComponent } from './components/tema/tema.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { TemaCardComponent } from './components/shared/tema-card/tema-card.component';
 
 
 
@@ -16,7 +17,8 @@ import { LayoutComponent } from './components/layout/layout.component';
         IndexComponent,
         TemasComponent,
         TemaComponent,
-        LayoutComponent
+        LayoutComponent,
+        TemaCardComponent
     ],
     imports: [
         CommonModule,

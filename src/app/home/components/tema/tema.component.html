@@ -2,22 +2,23 @@
     <div class="card-respuesta">
         <div class="col-md-6">
             <div class="card-cliente">
+                
                 <mat-card class="custom-mat-card">
                     <div class="mat-card-header">
-                        <div class="category-box"> {{ tema?.genero }} </div>
+                        <div class="category-box"> {{ tema.genero }} </div>
 
                         <div class="avatar-img">
-                            <img class="img-redonda" [src]="tema?.filePerfil! | apiImg" [alt]="tema?.titulo">
+                            <img class="img-redonda" [src]="tema.filePerfil! | apiImg" [alt]="tema.titulo">
                         </div>
                         <div class="text-container">
-                            <mat-card-title> {{tema?.titulo}} </mat-card-title>
-                            <mat-card-subtitle> {{tema?.usuarioNombre}}</mat-card-subtitle>
+                            <mat-card-title> {{tema.titulo}} </mat-card-title>
+                            <mat-card-subtitle> {{tema.usuarioNombre}}</mat-card-subtitle>
                         </div>
                     </div>
 
                     <mat-card-content>
                         <p>
-                            {{ tema?.mensaje }}
+                            {{ tema.mensaje }}
                         </p>
                     </mat-card-content>
 
@@ -33,18 +34,18 @@
             </div>
 
             <div  *ngIf="mostrarRespuestasState">
-                    <div class="card-cliente-respuestas" *ngFor="let respuesta of tema?.respuestas">
+                    <div class="card-cliente-respuestas" *ngFor="let respuesta of tema.respuestas">
                         <mat-card class="card-respuesta-tema">
                             <div class="mat-card-header">
         
                                 <div class="avatar-img">
-                                    <img class="img-redonda" [src]="respuesta.filePerfilRespuesta! | apiImg" [alt]="respuesta?.usuarioNombre">
+                                    <img class="img-redonda" [src]="respuesta.filePerfilRespuesta! | apiImg" [alt]="respuesta.usuarioNombre">
                                 </div>
         
                                 <div class="text-container">
-                                    <mat-card-subtitle class="fw-bold"> {{respuesta?.usuarioNombre}}</mat-card-subtitle>
+                                    <mat-card-subtitle class="fw-bold"> {{respuesta.usuarioNombre}}</mat-card-subtitle>
                                     <p>
-                                        {{ respuesta?.mensajeRespuesta }}
+                                        {{ respuesta.mensajeRespuesta }}
                                     </p>
                                 </div> 
                             </div>

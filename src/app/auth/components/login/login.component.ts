@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SolicitudAutenticacion, Profile } from '../interfaces/auth.interfaces';
+import { SolicitudAutenticacion, Profile } from '../../interfaces/auth.interfaces';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';

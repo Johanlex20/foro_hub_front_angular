@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RespuestaAutenticacion, SolicitudAutenticacion } from '../components/interfaces/auth.interfaces';
+import { RespuestaAutenticacion, SolicitudAutenticacion, SingupRequest } from '../interfaces/auth.interfaces';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs';
 
@@ -49,6 +49,8 @@ export class AuthService {
     this._auth =  undefined;
   }
 
-
+  singup(singupRequest: SingupRequest){
+    return this.http.post<SingupRequest>(`${environment.apiBase}/registro`, singupRequest)
+  }
 
 }

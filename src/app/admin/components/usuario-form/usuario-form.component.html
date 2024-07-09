@@ -44,7 +44,7 @@
         
                 <mat-form-field class="mb-3 w-100" appearance="outline">
                     <mat-label for="password">Password</mat-label>
-                    <input matInput id="password" placeholder="Genero" formControlName="password">  <!-- class="form-control"   se quita ya que usamos angular material-->
+                    <input matInput id="password" placeholder="Password" formControlName="password">  <!-- class="form-control"   se quita ya que usamos angular material-->
                     <mat-error class="invalid-feedback d-block">
                         <ng-container *ngIf="controlHasError('password','required')">
                             El Password es obligatorio

@@ -3,28 +3,42 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { Route, Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor(
-    private authService:AuthService
+    private authService:AuthService,
+    private router: Router
   ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.authService.token;
+    let $response;
 
     if(token){
       const clonedRequest = request.clone({
         headers: request.headers.set('Authorization', `Bearer ${token}`)
       });
 
-      return next.handle(clonedRequest);
+      $response = next.handle(clonedRequest);
+    }else{
+      $response = next.handle(request);
     }
-    return next.handle(request);
+    return $response
+    .pipe(tap({
+      error: error =>{
+        if(error instanceof HttpErrorResponse && error.status === 403){
+          this.authService.logout();
+          this.router.navigate(['/auth/login']);
+        }
+      }
+    }))
   }
 }

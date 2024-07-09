@@ -19,24 +19,24 @@ export class UsuarioService {
     params = params.append('page', page);
     params = params.append('sort', 'createdAt,desc');
 
-    return this.http.get<UsuarioPage>(`${environment.apiBase}/usuario`, {params});
+    return this.http.get<UsuarioPage>(`${environment.apiBase}/admin/usuario`, {params});
   }
 
   get(id: number){
-    return this.http.get<Usuario>(`${environment.apiBase}/usuario/${id}`);
+    return this.http.get<Usuario>(`${environment.apiBase}/admin/usuario/${id}`);
   }
 
   create(usuario: Usuario){
-    return this.http.post<Usuario>(`${environment.apiBase}/usuario`, usuario);
+    return this.http.post<Usuario>(`${environment.apiBase}/admin/usuario`, usuario);
   }
 
   update(id: number , usuario: Usuario){
-    return this.http.put(`${environment.apiBase}/usuario/${id}`, usuario);
+    return this.http.put(`${environment.apiBase}/admin/usuario/${id}`, usuario);
   }
 
 
   delete(usuario: Usuario){
-    return this.http.delete(`${environment.apiBase}/usuario/${usuario.id}`);
+    return this.http.delete(`${environment.apiBase}/admin/usuario/${usuario.id}`);
   }
 
   uploadFile(formData: FormData){

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TemaService } from '../services/tema.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tema } from '../../../interfaces/tema.interface';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-tema-form',
@@ -14,16 +15,33 @@ export class TemaFormComponent implements OnInit {
   errors: string[] = [];
   tema?: Tema;
   form?: FormGroup;
+  usuarioId?: number;
 
 
   constructor(
     private fb: FormBuilder,
     private temaService: TemaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
+
+    const perfil = this.authService.usuario;
+
+    if(perfil){
+      this.usuarioId = perfil.id;
+      //console.log('perfilid',perfil.id);
+      //console.log('usurioid', this.usuarioId);
+      this.initializeForm();
+    } else {
+      // Manejar el caso en el que no se puede obtener el perfil del usuario
+      console.error('Error: Usuario no autenticado');
+    }
+  }
+    
+  initializeForm() {
 
     const temaId = this.route.snapshot.paramMap.get('id');
 
@@ -49,7 +67,7 @@ export class TemaFormComponent implements OnInit {
         titulo: [, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
         mensaje: [, [Validators.required, Validators.minLength(5), Validators.maxLength(5000), Validators.pattern('[a-z0-9- ]+')]],
         genero: [, [Validators.required]],
-        usuarioId: [, [Validators.required]]
+        usuarioId: [this.usuarioId, [Validators.required]]
       });
 
     }

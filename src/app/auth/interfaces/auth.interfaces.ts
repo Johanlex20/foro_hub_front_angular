@@ -9,6 +9,7 @@ export interface RespuestaAutenticacion {
 }
 
 export interface Profile{
+    id:number;
     nombre: string;
     email : string;
     password : string;

@@ -32,7 +32,7 @@ export class TemaService implements OnInit {
   }
 
   update(id: number, tema: Tema){
-    return this.http.put<Tema>(`${environment.apiBase}/admin/topicos/${id}`, tema);
+    return this.http.put<Tema>(`${environment.apiBase}/topicos/${id}`, tema);
   }
 
   get(id:number){
@@ -40,7 +40,7 @@ export class TemaService implements OnInit {
   }
 
   delete(tema: Tema){
-    return this.http.delete(`${environment.apiBase}/admin/topicos/${tema.id}`);
+    return this.http.delete(`${environment.apiBase}/topicos/${tema.id}`);
   }
 
 }

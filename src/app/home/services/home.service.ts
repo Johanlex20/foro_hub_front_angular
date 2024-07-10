@@ -28,6 +28,4 @@ export class HomeService {
   get(id : number){
     return this.http.get<Tema>(`${environment.apiBase}/topicos/${id}`);
   }
-
-
 }

@@ -9,6 +9,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { TemaComponent } from './components/tema/tema.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { TemaCardComponent } from './components/shared/tema-card/tema-card.component';
+import { FormularioTemaComponent } from './components/formulario-tema/formulario-tema.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,14 +20,18 @@ import { TemaCardComponent } from './components/shared/tema-card/tema-card.compo
         TemasComponent,
         TemaComponent,
         LayoutComponent,
-        TemaCardComponent
+        TemaCardComponent,
+        FormularioTemaComponent,
+
     ],
     imports: [
         CommonModule,
         HomeRoutingModule,
         MaterialModule,
         SharedModule,
-        InfiniteScrollModule
+        InfiniteScrollModule,
+        ReactiveFormsModule,
+        MaterialModule
     ]
 })
 export class HomeModule { }

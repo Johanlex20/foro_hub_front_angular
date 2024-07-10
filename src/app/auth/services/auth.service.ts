@@ -53,4 +53,8 @@ export class AuthService {
     return this.http.post<SingupRequest>(`${environment.apiBase}/registro`, singupRequest)
   }
 
+  isAuthenticated(): boolean {
+    return !!this._auth;
+  }
+
 }

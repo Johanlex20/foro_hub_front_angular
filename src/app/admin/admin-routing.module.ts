@@ -6,6 +6,7 @@ import { UsuarioListComponent } from './components/usuario-list/usuario-list.com
 import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { RespuestasListComponent } from './components/respuestas-list/respuestas-list.component';
+import { RespuestaFormComponent } from './components/respuesta-form/respuesta-form.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,14 @@ const routes: Routes = [
       {
         path: 'respuestas',
         component: RespuestasListComponent
+      },
+      {
+        path: 'respuesta/new',
+        component: RespuestaFormComponent
+      },
+      {
+        path: 'respuesta/:id/edit',
+        component: RespuestaFormComponent
       },
     ]
   }

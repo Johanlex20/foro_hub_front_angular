@@ -10,6 +10,7 @@ import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { RespuestasListComponent } from './components/respuestas-list/respuestas-list.component';
+import { RespuestaFormComponent } from './components/respuesta-form/respuesta-form.component';
 
 
 
@@ -20,7 +21,8 @@ import { RespuestasListComponent } from './components/respuestas-list/respuestas
     UsuarioListComponent,
     UsuarioFormComponent,
     LayoutComponent,
-    RespuestasListComponent
+    RespuestasListComponent,
+    RespuestaFormComponent
   ],
   imports: [
     

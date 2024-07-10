@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RespuestaService } from '../services/respuesta.service';
-import { Respuesta } from 'src/app/interfaces/respuesta.interface';
+import { Respuesta, RespuestaPage } from 'src/app/interfaces/tema.interface';
+import { PageEvent } from '@angular/material/paginator';
+
+
 ;
 
 
@@ -11,6 +14,11 @@ import { Respuesta } from 'src/app/interfaces/respuesta.interface';
 })
 export class RespuestasListComponent implements OnInit{
 
+  respuestaPage?: RespuestaPage;
+  displayedColums = [
+    'id','respuesta','tema','usuario','createdAt','activo','actions'
+  ]
+
   respuestas?: Respuesta[];
 
 
@@ -19,14 +27,33 @@ export class RespuestasListComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.respuestaService.paginate()
-    .subscribe(respuestaPage =>{
-      this.respuestas = respuestaPage.content;
-    })
+    this.loadRespuesta();
   }
 
+  loadRespuesta(){
+    this.respuestaService.paginate()
+    .subscribe(respuestaPage =>{
+      this.respuestaPage = respuestaPage;
+    });
+  }
 
+  deleteRespuesta(respuesta: Respuesta){
+    if(confirm('¿Estás seguro de que quieres eliminar esta respuesta?')){
+    this.respuestaService.delete(respuesta)
+      .subscribe(()=>{
+        this.loadRespuesta();
+      });
+    }
+  }
 
+  paginateRespuesta (event: PageEvent){
+    const { pageIndex, pageSize } = event;
+
+    this.respuestaService.paginate(pageSize, pageIndex)
+      .subscribe(respuestaPage => {
+        this.respuestaPage = respuestaPage;
+      });
+  }
 
 
 

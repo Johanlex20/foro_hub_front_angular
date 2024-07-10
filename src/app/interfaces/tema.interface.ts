@@ -34,11 +34,29 @@ export enum Genero {
 }
 
 export interface Respuesta {
-filePerfilRespuesta: string;
     id:               number;
     mensajeRespuesta: string;
+    temaId:           number;
     usuarioId:        number;
     usuarioNombre:    string;
+    filePerfilRespuesta: string;
+    activo:           boolean;
+    createdAt:        Date;
+    updatedAt:        Date | null;
+}
+
+export interface RespuestaPage {
+    content:          Respuesta[];
+    pageable:         Pageable;
+    last:             boolean;
+    totalPages:       number;
+    totalElements:    number;
+    size:             number;
+    number:           number;
+    sort:             Sort;
+    first:            boolean;
+    numberOfElements: number;
+    empty:            boolean;
 }
 
 export interface Pageable {

@@ -1,0 +1,45 @@
+<h1>Lista de Respuestas</h1>
+
+<div class="text-end mb-5">
+    <button mat-raised-button color="primary" routerLink=""> <!--  class="btn btn-primary"  -->
+        NUEVA RESPUESTA
+    </button>
+</div>
+
+
+<table class="table table-hover mt-5">
+    <thead>
+        <tr>
+            <th> ID RESPUSTA </th>
+            <th> RESPUSTA </th>
+            <th> ID TEMA </th>
+            <th> ID USUARIO </th>
+            <th> FECHA </th>
+            <th> ACTIVO </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let respuesta of respuestas">
+            <td>{{ respuesta.id }}</td>
+            <td>{{ respuesta.mensajeRespuesta }}</td>
+            <td>{{ respuesta.temaId }}</td>
+            <td>{{ respuesta.usuarioId }}</td>
+            <td>{{ respuesta.createdAt }}</td>
+            <td>{{ respuesta.activo }}</td>
+            <td>
+
+                <a href="#">
+                    Editar
+                </a>
+                <a href="#">
+                    Eliminar
+                </a>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+

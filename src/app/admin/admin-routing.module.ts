@@ -5,6 +5,7 @@ import { TemaFormComponent } from './components/tema-form/tema-form.component';
 import { UsuarioListComponent } from './components/usuario-list/usuario-list.component';
 import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { RespuestasListComponent } from './components/respuestas-list/respuestas-list.component';
 
 
 const routes: Routes = [
@@ -34,7 +35,11 @@ const routes: Routes = [
       {
         path:'usuario/:id/edit',
         component: UsuarioFormComponent
-      }
+      },
+      {
+        path: 'respuestas',
+        component: RespuestasListComponent
+      },
     ]
   }
 ];

@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { LayoutComponent } from './components/layout/layout.component';
+import { RespuestasListComponent } from './components/respuestas-list/respuestas-list.component';
 
 
 
@@ -18,7 +19,8 @@ import { LayoutComponent } from './components/layout/layout.component';
     TemaFormComponent,
     UsuarioListComponent,
     UsuarioFormComponent,
-    LayoutComponent
+    LayoutComponent,
+    RespuestasListComponent
   ],
   imports: [
     

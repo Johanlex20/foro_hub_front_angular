@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Tema, TemaPage } from 'src/app/interfaces/tema.interface';
+import { Respuesta, Tema, TemaPage } from 'src/app/interfaces/tema.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -27,5 +27,14 @@ export class HomeService {
 
   get(id : number){
     return this.http.get<Tema>(`${environment.apiBase}/topicos/${id}`);
+  }
+
+  createRespuesta(respuesta:Respuesta){
+    return this.http.post<Respuesta>(`${environment.apiBase}/respuesta`,respuesta)
+  }
+
+
+  updateRespuesta(id: number, respuesta: Respuesta){
+    return this.http.put<Respuesta>(`${environment.apiBase}/respuesta/${id}`, respuesta);
   }
 }

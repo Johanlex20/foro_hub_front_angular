@@ -74,26 +74,50 @@
                 </ng-template>
 
             </div>
-
-
         </div>
 
-        <div class="col-md-6">
-            <div class="card-fondo-formulario-respuesta">
-                <div class="card-formulario-respuesta">
-                    <h1 class="fw-bold"> <mat-icon>rocket_launch</mat-icon> COMENTAR <mat-icon>rocket_launch</mat-icon>
-                    </h1>
+        <div class="col-md-6" *ngIf="form">
+         
+                <div class="mb-3 w-100" appearance="outline">
+                    <div class="card-fondo-formulario-respuesta">
+                        <div class="card-formulario-respuesta">
+                           
+                            <h1 class="fw-bold"> <mat-icon>rocket_launch</mat-icon> COMENTAR <mat-icon>rocket_launch</mat-icon></h1>
+        
+                            <form [formGroup]="form" (ngSubmit)="createRespuesta()">
+                                <mat-form-field class="w-100" appearance="fill">
+                                    <mat-label for="mensajeRespuesta">Mensaje</mat-label>
+                                    <textarea  matInput id="mensajeRespuesta" type="text" formControlName="mensajeRespuesta" rows="8"></textarea>
+                                    <mat-error class="invalid-feedback d-block">
+                                        <ng-container *ngIf="controlHasError('mensajeRespuesta', 'required')">
+                                            El Mensaje es obligatorio
+                                        </ng-container>
+                                        <ng-container *ngIf="controlHasError('mensajeRespuesta','minlength')">
+                                            El Mensaje debe tener al menos 5 caracteres
+                                        </ng-container>
+                                        <ng-container *ngIf="controlHasError('mensajeRespuesta', 'maxlength')">
+                                            El Mensaje puede tener 5000 caracteres maximo
+                                        </ng-container>
+                                        <ng-container *ngIf="controlHasError('mensajeRespuesta', 'pattern')">
+                                            El Mensaje no puede tener caracteres entre:  a-z 0-9 - +
+                                        </ng-container>
+                                    </mat-error>
+                                </mat-form-field>
 
-                    <textarea id="mensaje" class="w-100" rows="10" type="text"
-                        placeholder="Ingresa tu respuesta"></textarea>
+                                <div class="mt-5">
+                                    <button mat-button>
+                                        <mat-icon>chat</mat-icon> ENVIAR COMENTARIO
+                                    </button>
+                                </div>
 
-                    <div class="mt-5">
-                        <button mat-button>
-                            <mat-icon>chat</mat-icon> ENVIAR COMENTARIO
-                        </button>
+                            </form>
+        
+
+                        
+                        </div>
                     </div>
                 </div>
-            </div>
+
 
         </div>
 

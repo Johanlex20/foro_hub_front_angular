@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
   styleUrls: []
 })
 export class LayoutComponent {
+  
 
   constructor(
     private authService: AuthService

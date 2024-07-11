@@ -9,11 +9,13 @@ export interface RespuestaAutenticacion {
 }
 
 export interface Profile{
+    filePerfil : string;
     id:number;
     nombre: string;
     email : string;
     password : string;
     role: 'USER' | 'ADMIN' ;
+   
 }
 
 export interface SingupRequest{

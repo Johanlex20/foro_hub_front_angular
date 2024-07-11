@@ -13,6 +13,7 @@ export class TemasComponent implements OnInit{
   temas: Tema[] = [];
   page: number = 0;
   last: boolean = false;
+  liked: boolean = false; // Nueva propiedad para controlar el estado del "like"
 
   constructor(
     private homeService:HomeService
@@ -37,6 +38,10 @@ export class TemasComponent implements OnInit{
         this.last = temaPage.last;
       });
     }
+  }
+
+  toggleLike() { // Nuevo método para alternar el estado del "like"
+    this.liked = !this.liked;
   }
 
 }

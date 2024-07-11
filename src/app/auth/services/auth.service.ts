@@ -20,6 +20,7 @@ export class AuthService {
   ) { 
     const authString = localStorage.getItem(authKey); //localStorage.getItem(authKey) Obtiene los datos de autenticación del localStorage si existen.
     if(authString){
+      console.log('Datos de autenticación:', JSON.parse(authString));
       this._auth = JSON.parse(authString); //JSON.parse(authString): Convierte la cadena JSON almacenada en un objeto JavaScript y lo asigna a _auth.
     }
   }

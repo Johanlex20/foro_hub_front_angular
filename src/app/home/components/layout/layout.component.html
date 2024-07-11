@@ -1,4 +1,4 @@
-<mat-toolbar  class="custom-toolbar">
+<mat-toolbar class="custom-toolbar">
     <span>FORO GOOD ONLINE</span>
 
     <button mat-button routerLink="/" class="ms-3">
@@ -17,32 +17,28 @@
 
     <ng-container *ngIf="usuario; else authButtons">
         <button mat-button [matMenuTriggerFor]="userMenu">
-            <mat-icon>account_circle</mat-icon> {{ usuario.nombre }}
+            <div class="barra-img">
+                <img class="img-redonda4" [src]="usuario.filePerfil | apiImg" [alt]="usuario.nombre">
+                <h1> {{ usuario.nombre }} </h1>
+            </div>
         </button>
 
-       <mat-menu #userMenu>
-        <button mat-menu-item (click)="logout()">
-            <mat-icon>logout</mat-icon> Cerrar Sesión
-        </button>
-       </mat-menu>
+        <mat-menu #userMenu>
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon> Cerrar Sesión
+            </button>
+        </mat-menu>
 
     </ng-container>
-    
 
     <ng-template #authButtons>
-        <button mat-raised-button class="ms-2"  routerLink="/auth/login">
+        <button mat-raised-button class="ms-2" routerLink="/auth/login">
             <mat-icon>login</mat-icon> Iniciar sesión
         </button>
         <button mat-raised-button class="ms-2" routerLink="/auth/singup">
             <mat-icon>logout</mat-icon> Registrarme
         </button>
     </ng-template>
-
-
-
-
-    
-    
 
 </mat-toolbar>
 

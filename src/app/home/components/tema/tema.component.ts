@@ -19,6 +19,8 @@ export class TemaComponent implements OnInit {
   usuarioAutenticado: boolean = false;
   form?:FormGroup;
   errors: string[] = [];
+  liked: boolean = false; // Nueva propiedad para controlar el estado del "like"
+
 
 
 
@@ -117,6 +119,10 @@ export class TemaComponent implements OnInit {
 
   controlHasError(control: string, error: string) {
     return this.form!.controls[control].hasError(error) && this.form!.controls[control].touched;
+  }
+
+  toggleLike() { // Nuevo método para alternar el estado del "like"
+    this.liked = !this.liked;
   }
 
 }

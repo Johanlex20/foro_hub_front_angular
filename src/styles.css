@@ -206,3 +206,51 @@ body {
 .spacer {
     flex: 1 1 auto;
 }
+
+
+/* Barra */ 
+
+.barra-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.barra-img img {
+    display: flex;
+    width: 50px; /* Ajusta el tamaño del avatar */
+    height: 50px; /* Ajusta el tamaño del avatar */
+    border-radius: 50%; /* Hace la imagen redonda */
+    margin-right: 20px;
+}
+
+.img-redonda {
+    width: 64px; 
+    height: 64px; 
+    border-radius: 50%; 
+    object-fit: cover;  /* Esto asegura que la imagen se ajuste bien dentro del contenedor redondo */
+}
+
+
+.hover-shadow {
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .hover-shadow:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  }
+
+  .liked {
+    color: #09C2D2; /* Cambia el color del icono cuando está "liked" */
+  }
+
+  .custom-button {
+    background-color: #09C2D2 !important;
+    color: white !important;
+  }
+  
+  .custom-button:hover {
+    background-color: white !important;
+    color: #09C2D2 !important;
+  }

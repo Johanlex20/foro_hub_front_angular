@@ -5,6 +5,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { TemaService } from '../../../admin/components/services/tema.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tema',
@@ -67,18 +68,48 @@ export class TemaComponent implements OnInit {
 
   deleteTema(tema: Tema): void {
     if (this.usuarioAutenticado) {
-      this.temaService.delete(tema).subscribe(() => {
-        console.log('Tema elinado');
-        this.router.navigate(['/']);
-      }
-        , error => {
-          console.error('Error al eliminar el tema', error);
-        });
+      Swal.fire({
+        title: '¿Está seguro de eliminar el tema?',
+        text: '¡No podrá recuperar el tema!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.temaService.delete(tema).subscribe({
+            next: () => {
+              console.log('Tema eliminado');
+              this.router.navigate(['/tema']);
+              Swal.fire({
+                title: 'Eliminado',
+                text: 'Tema eliminado con éxito.',
+                icon: 'success',
+                timer: 2000,
+                showConfirmButton: false
+              });
+            },
+            error: (error) => {
+              console.error('Error al eliminar el tema', error);
+              Swal.fire({
+                title: 'Error',
+                text: 'Hubo un problema al eliminar el tema.',
+                icon: 'error',
+                timer: 2000,
+                showConfirmButton: false
+              });
+            }
+          });
+        }
+      });
     } else {
-      alert('No tienes permiso para eliminar este tema');
+      this.alertaSwal("warning",'No tienes permiso para eliminar este tema');
       // Aquí podrías mostrar un mensaje al usuario indicando que no tiene permiso
     }
   }
+
 
   
 
@@ -103,9 +134,11 @@ export class TemaComponent implements OnInit {
 
 
     if (this.respuesta) {
-      request = this.homeServices.updateRespuesta(this.respuesta.id, respuesta)
+      request = this.homeServices.updateRespuesta(this.respuesta.id, respuesta);
+      this.alertaSwal("success", `Respuesta Actualizada`);
     } else {
-      request = this.homeServices.createRespuesta(respuesta)
+      request = this.homeServices.createRespuesta(respuesta);
+      this.alertaSwal("success", `Respuesta Creada`);
     }
 
     request
@@ -123,6 +156,17 @@ export class TemaComponent implements OnInit {
 
   toggleLike() { // Nuevo método para alternar el estado del "like"
     this.liked = !this.liked;
+  }
+
+
+  alertaSwal = (icon: any, title: any) =>{
+    Swal.fire({
+      position: "center",
+      icon: icon ,
+      title: title,
+      showConfirmButton: false,
+      timer: 2500
+    });
   }
 
 }

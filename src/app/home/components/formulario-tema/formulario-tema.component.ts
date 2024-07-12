@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TemaService } from 'src/app/admin/components/services/tema.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Tema } from 'src/app/interfaces/tema.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-formulario-tema',
@@ -97,15 +98,18 @@ export class FormularioTemaComponent {
 
 
     if (this.tema) {
-      request = this.temaService.update(this.tema.id, tema)
+      request = this.temaService.update(this.tema.id, tema);
+      this.alertaSwal("success", `Tema Actualizado`);
     } else {
-      request = this.temaService.create(tema)
+      request = this.temaService.create(tema);
+      this.alertaSwal("success", `Tema Creado`);
     }
 
     request
       .subscribe({
         next: tema => {
           this.router.navigate(['/temas']);
+          
         },
         error: error => {
           if (error.error.status === 400) {
@@ -115,8 +119,16 @@ export class FormularioTemaComponent {
           }
         }
       })
+  }
 
 
-
+  alertaSwal = (icon: any, title: any) =>{
+    Swal.fire({
+      position: "center",
+      icon: icon ,
+      title: title,
+      showConfirmButton: false,
+      timer: 2500
+    });
   }
 }

@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-login',
@@ -26,13 +29,35 @@ export class LoginComponent {
     }
     this.authService.autenticacion(this.solicitudAutenticacion)
     .subscribe(profile =>{
-      this.snackBar.open(`Bienvenido ${profile.nombre}`, 'Cerrar', { 
+/*
+      Swal.fire({
+        position:'center',
+        icon: "success",
+        title: `Bienvenido ${profile.nombre}`,
+        showConfirmButton: false,
+        timer: 1500
+      });
+*/
+      this.alertaSwal("success", `Bienvenido ${profile.nombre}`)
+
+     /* this.snackBar.open(`Bienvenido ${profile.nombre}`, 'Cerrar', { 
         duration: 5000,
         verticalPosition: 'bottom', // cambiar por sweetmessages
         horizontalPosition: 'center'// cambiar por sweetmessages
-      });
+      });*/
       this.router.navigate([''])
     });
   }
 
+  
+  alertaSwal = (icon: any, title: any) =>{
+    Swal.fire({
+      position: "center",
+      icon: icon ,
+      title: title,
+      showConfirmButton: false,
+      timer: 2500
+    });
+  }
+  
 }

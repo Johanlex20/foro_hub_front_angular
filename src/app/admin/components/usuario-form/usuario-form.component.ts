@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../services/usuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from '../../../interfaces/usuairo.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuario-form',
@@ -85,9 +86,11 @@ export class UsuarioFormComponent implements OnInit{
     let request;
 
     if(this.usuario){
-      request = this.usuarioService.update(this.usuario.id, usuario)
+      request = this.usuarioService.update(this.usuario.id, usuario);
+      this.alertaSwal("success", `Usuario Actualizado`);
     }else{
       request = this.usuarioService.create(usuario);
+      this.alertaSwal("success", `Usuario Creado`);
     }
 
     request
@@ -104,6 +107,17 @@ export class UsuarioFormComponent implements OnInit{
         }
       });
   
+  }
+
+
+  alertaSwal = (icon: any, title: any) =>{
+    Swal.fire({
+      position: "center",
+      icon: icon ,
+      title: title,
+      showConfirmButton: false,
+      timer: 2500
+    });
   }
 
 

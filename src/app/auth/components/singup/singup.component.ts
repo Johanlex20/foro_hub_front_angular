@@ -5,6 +5,7 @@ import { SingupRequest } from '../../interfaces/auth.interfaces';
 import { UsuarioService } from 'src/app/admin/components/services/usuario.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-singup',
@@ -52,11 +53,16 @@ export class SingupComponent {
           password: formValues.password
         })
         .subscribe(profile =>{
+/*
           this.snackBar.open(`Bienvenido ${profile.nombre}`, 'Cerrar', { 
             duration: 5000,
             verticalPosition: 'bottom', // cambiar por sweetmessages
             horizontalPosition: 'center'// cambiar por sweetmessages
           });
+*/
+
+          this.alertaSwal("success", `Bienvenido ${profile.nombre}`)
+
           this.router.navigate([''])
         });
       },
@@ -84,5 +90,14 @@ export class SingupComponent {
     }
   }
 
+  alertaSwal = (icon: any, title: any) =>{
+    Swal.fire({
+      position: "center",
+      icon: icon ,
+      title: title,
+      showConfirmButton: false,
+      timer: 2500
+    });
+  }
 
 }

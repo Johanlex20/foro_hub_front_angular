@@ -20,7 +20,7 @@ import { LayoutComponent } from './components/layout/layout.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthRoutingModule
+    AuthRoutingModule,
   ]
 })
 export class AuthModule { }

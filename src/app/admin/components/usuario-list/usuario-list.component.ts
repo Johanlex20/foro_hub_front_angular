@@ -3,6 +3,7 @@ import { UsuarioService } from '../services/usuario.service';
 import { Usuario, UsuarioPage } from '../../../interfaces/usuairo.interface';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuario-list',
@@ -33,13 +34,47 @@ export class UsuarioListComponent implements OnInit {
 
 
   deleteUsuario(usuario: Usuario) {
-    if (confirm('Esta seguro de eliminar el usuario?')) {
-      this.usuarioService.delete(usuario)
-        .subscribe(() => {
-          this.loadUsuario();
-        });
+      Swal.fire({
+        title: '¿Está seguro de eliminar el usuario?',
+        text: "¡No podrá recuperar el usuario!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          
+          this.usuarioService.delete(usuario).subscribe({
+            next: () => {
+              this.loadUsuario();
+              Swal.fire({
+                title: 'Eliminado',
+                text: 'Usuario eliminado con éxito.',
+                icon: 'success',
+                timer: 2000,
+                showConfirmButton: false
+              });
+            },
+            error: () => {
+              Swal.fire({
+                title: 'Error',
+                text: 'Hubo un problema al eliminar el usuario.',
+                icon: 'error',
+                timer: 2000,
+                showConfirmButton: false
+              });
+            }
+          });
+        }
+      });
     }
-  }
+  
+
+ 
+
+  
 
   paginateUsuario(event: PageEvent){
     const { pageIndex, pageSize } = event;
@@ -49,6 +84,8 @@ export class UsuarioListComponent implements OnInit {
         this.usuarioPage = usuarioPage;
       });
   }
+
+
 
 
 }

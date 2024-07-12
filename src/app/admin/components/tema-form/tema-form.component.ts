@@ -4,6 +4,7 @@ import { TemaService } from '../services/tema.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tema } from '../../../interfaces/tema.interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tema-form',
@@ -37,7 +38,8 @@ export class TemaFormComponent implements OnInit {
       this.initializeForm();
     } else {
       // Manejar el caso en el que no se puede obtener el perfil del usuario
-      console.error('Error: Usuario no autenticado');
+      this.alertaSwal("warning", `Usuario no autenticado`);
+      //console.error('Error: Usuario no autenticado');
     }
   }
     
@@ -89,9 +91,11 @@ export class TemaFormComponent implements OnInit {
 
 
     if (this.tema) {
-      request = this.temaService.update(this.tema.id, tema)
+      request = this.temaService.update(this.tema.id, tema);
+      this.alertaSwal("success", `Tema Actualizado`);
     } else {
-      request = this.temaService.create(tema)
+      request = this.temaService.create(tema);
+      this.alertaSwal("success", `Tema Creado`);
     }
 
     request
@@ -106,10 +110,18 @@ export class TemaFormComponent implements OnInit {
             this.errors.push(...error.error.errors)
           }
         }
-      })
+      });
+  }
 
 
-
+  alertaSwal = (icon: any, title: any) =>{
+    Swal.fire({
+      position: "center",
+      icon: icon ,
+      title: title,
+      showConfirmButton: false,
+      timer: 2500
+    });
   }
 
 

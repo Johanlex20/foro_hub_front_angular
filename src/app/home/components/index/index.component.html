@@ -8,6 +8,7 @@
 </div>
 
 <div class="container mt-5">
+  <h1 class="fw-bold mb-5">Últimos Temas</h1>
 
   <div class="text-end mb-5">
     <button mat-raised-button  class="custom-button " (click)="navigateToNewTema()" > <!--  routerLink="/tema/home/new" class="btn btn-primary"  -->
@@ -15,7 +16,6 @@
     </button>
   </div>
 
-  <h1 class="fw-bold mb-5">Últimos Temas</h1>
   <div class="row">
     <div class="col-md-4 mb-5" *ngFor="let tema of lastTemas">
 
@@ -23,3 +23,4 @@
     </div>
   </div>
 </div>
+

@@ -11,6 +11,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { TemaCardComponent } from './components/shared/tema-card/tema-card.component';
 import { FormularioTemaComponent } from './components/formulario-tema/formulario-tema.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         LayoutComponent,
         TemaCardComponent,
         FormularioTemaComponent,
+        FooterComponent,
 
     ],
     imports: [

@@ -1,6 +1,6 @@
 <mat-toolbar class="custom-toolbar">
     <span>FORO GOOD ONLINE</span>
-
+  
     <button mat-button routerLink="/" class="ms-3">
         Inicio
     </button>
@@ -10,7 +10,7 @@
     </button>
 
     <button mat-button routerLink="/admin/tema" class="ms-3" *ngIf="usuario?.role === 'ADMIN'">
-        Administración Temas
+        Administración
     </button>
 
     <span class="spacer"></span> <!--enviar al final de la barra los botones -->
@@ -32,10 +32,10 @@
     </ng-container>
 
     <ng-template #authButtons>
-        <button mat-raised-button class="ms-2" routerLink="/auth/login">
+        <button mat-raised-button class="custom-button ms-2" routerLink="/auth/login">
             <mat-icon>login</mat-icon> Iniciar sesión
         </button>
-        <button mat-raised-button class="ms-2" routerLink="/auth/singup">
+        <button mat-raised-button class="custom-button-2 ms-2" routerLink="/auth/singup">
             <mat-icon>logout</mat-icon> Registrarme
         </button>
     </ng-template>

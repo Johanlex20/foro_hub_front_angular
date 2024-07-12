@@ -170,6 +170,8 @@ body {
     z-index: -2;
 }
 
+
+
 .overlay {
     position: absolute;
     top: 0;
@@ -253,4 +255,25 @@ body {
   .custom-button:hover {
     background-color: white !important;
     color: #09C2D2 !important;
+  }
+
+  .custom-button-2 {
+    background-color: white !important;
+    color:  #09C2D2 !important; 
+  }
+  
+  .custom-button-2:hover {
+    background-color:#09C2D2 !important; 
+    color: white !important;
+  }
+
+  .custom-a {
+    background-color: white !important;
+    color: #09C2D2 !important;
+    text-decoration: none;
+  }
+  
+  .custom-a:hover {
+    background-color:white !important; 
+    color:#047a85  !important;
   }

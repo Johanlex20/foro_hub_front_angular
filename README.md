@@ -1,27 +1,84 @@
-# FOROHUBFRONTANGULAR
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
+<div align="center">
+  <h1 align="center">
 
-## Development server
+[![bannernew.jpg](https://i.postimg.cc/NF3tGNQX/bannernew.jpg)](https://postimg.cc/8fm9tmJk)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<br />
+ 
+👋 WELCOME FORO HUB
 
-## Code scaffolding
+🚀 Comparto mi resultado final del FORO GOOD Spring Boot y Angular una API REST, con autenticación, login con Spring security, JWT, manejo de errores, validaciones.
+Fue agradable poner en práctica los conocimientos en búsqueda de un buen resultado. 🚀 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+GOOD PROJECT
+<br />
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  </h1>
+</div>
 
-## Running unit tests
+# 💻 Tech Stack:
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white) ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+# FORO-HUB challenge3-Alura-Oracle-APIREST
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## 💡 SOBRE EL CODIGO 💡
+Desarrollo basado en los criterios del Challengs 3 Creacion FORO HUB, un aplicativo que predende crear interacion entre usuarios proponiendo preguntas o temas para que posteriormente otros usuarios puedan brindar información en el desarrollo se implementan de 3 clases base USUARIOS, TEMAS, RESPUESTAS con funciones CRUD, subida de imagnes perfil, relacion entre tablas para consulta de datos en un API REST que puede ser consumida por un FRONTED.
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> </a> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a>    <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://spring.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="spring" width="40" height="40"/> </a> </p>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## 💻 FUNCIONES DEL API DESARROLLO💻
+- 🌟 LISTAR USUARIO, TEMA, RESPUESTA
+- 🌟 FILTRAR ID
+- 🌟 ELIMINACION ID
+- 🌟 CRUD USUARIO, TEMA, RESPUESTA
+- 🌟 SUBIDA DE ARCHIVOS
+- 🌟 LOGIN, AUTENTICACIÓN
+- 🌟 MANEJO ROLES
+- 🌟 FILTROS Y PERMISOS DE SEGUIRIDAD POR ROLES
+- 🌟 VALIDACIONES
+- 🌟 MANEJO DE EXCPIONES HANDLER
+
+
+# 🌟   URL FUNCIONES   🌟
+[![DOCUMENTACION-SWAGGER-1.jpg](https://i.postimg.cc/CLrMXNyw/DOCUMENTACION-SWAGGER-1.jpg)](https://postimg.cc/xcHSbLTZ)
+[![DOCUMENTACION-SWAGGER-3.jpg](https://i.postimg.cc/m2c3PzpL/DOCUMENTACION-SWAGGER-3.jpg)](https://postimg.cc/w7pRPvdZ)
+
+# 🌟   Mapeo Base de Datos   🌟
+[![DOCUMENTACION-SWAGGER-4.jpg](https://i.postimg.cc/3rBxChn4/DOCUMENTACION-SWAGGER-4.jpg)](https://postimg.cc/hhXnckFc)
+
+# 🌟   Interacción consultas   🌟
+[![DOCUMENTACION-SWAGGER-2.jpg](https://i.postimg.cc/GhmhXf5M/DOCUMENTACION-SWAGGER-2.jpg)](https://postimg.cc/3WzTRt7p)
+
+## 💻 IDES/ INSTALACIÓN O REQUERIMIENTOS💻
+- MAVEN
+- LIBRERIA JPA 
+- MYSQL
+- LOMBOK
+- INTELLIJ IDEA
+- SWAGGER
+- OPEN API
+- SPRING SECURITY
+- SPRING WEB
+
+## 🌟 Tecnologías usadas 🌟
+| Tecnología | Versión | Descripción                                                                     |
+|------------|---------|---------------------------------------------------------------------------------|
+|SPRINGBOOT       | 3.1.5       | Lenguaje para la logica y consumo api. |
+
+## 🤝 Redes sociales 🤝
+
+-  GitHub: https://github.com/Johanlex20
+-  LinkedIn: https://www.linkedin.com/in/johanlex20/
+
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://www.linkedin.com/in/johanlex20/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="tomasz-oleksik-03190a189" height="30" width="40" /></a>
+<a href="https://www.youtube.com/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="channel/" height="30" width="40" /></a>
+</p>
+
+

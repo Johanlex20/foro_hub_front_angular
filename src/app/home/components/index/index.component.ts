@@ -4,6 +4,7 @@ import { Tema } from 'src/app/interfaces/tema.interface';
 import { Usuario } from 'src/app/interfaces/usuairo.interface';
 import { AuthService } from '../../../auth/services/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-index',
@@ -33,9 +34,19 @@ export class IndexComponent implements OnInit{
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/tema/home/new']);
     } else {
-      alert('Necesitas estar registrado para crear un tema');
+      this.alertaSwal("error", 'Necesita estar registrado para crear un tema');
       this.router.navigate(['/auth/login']);
     }
+  }
+
+  alertaSwal = (icon: any, title: any) =>{
+    Swal.fire({
+      position: "center",
+      icon: icon ,
+      title: title,
+      showConfirmButton: false,
+      timer: 2500
+    });
   }
 
 

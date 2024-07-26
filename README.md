@@ -103,7 +103,7 @@ Desarrollo basado en los criterios de una tienda virtual online compra de Ebooks
 
 -  GitHub: https://github.com/Johanlex20
 -  LinkedIn: https://www.linkedin.com/in/johanlex20/
--  Youtube: https://lnkd.in/ebUC6PV7
+-  Youtube: https://youtu.be/HuG3S0_v8eo?si=aVakX2FwyBPAo9A9
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">

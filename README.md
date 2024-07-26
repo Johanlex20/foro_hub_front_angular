@@ -2,14 +2,13 @@
 <div align="center">
   <h1 align="center">
 
-[![bannernew.jpg](https://i.postimg.cc/NF3tGNQX/bannernew.jpg)](https://postimg.cc/8fm9tmJk)
+[![LIBRERIA-GOOD.png](https://i.postimg.cc/G3vptH7G/LIBRERIA-GOOD.png)](https://postimg.cc/238YX8fS)
 
 <br />
  
-👋 WELCOME FORO HUB
+👋 WELCOME LITERATURA GOOD
 
-🚀 Comparto mi resultado final del FORO GOOD Spring Boot y Angular una API REST, con autenticación, login con Spring security, JWT, manejo de errores, validaciones.
-Fue agradable poner en práctica los conocimientos en búsqueda de un buen resultado. 🚀 
+🚀 Comparto mi resultado final de lIBRERIA GOOD Spring Boot y Angular una API REST, con autenticación, login con Spring security, JWT, manejo de errores, validaciones, Consumo api Paypal, compra de libros y desarga, regsitro y servicios por roles. 🚀 
 
 
 GOOD PROJECT
@@ -36,15 +35,16 @@ GOOD PROJECT
 
 
 
-# FORO-HUB-APIREST ANGULAR Y SPRINGBOOT
+# LIBRERIA-GOOD-APIREST ANGULAR Y SPRINGBOOT
 
 
 ## 💡 SOBRE EL CODIGO 💡
-Desarrollo basado en los criterios del Challengs 3 Creacion FORO HUB, un aplicativo que predende crear interacion entre usuarios proponiendo preguntas o temas para que posteriormente otros usuarios puedan brindar información en el desarrollo se implementan de 3 clases base USUARIOS, TEMAS, RESPUESTAS con funciones CRUD, subida de imagnes perfil, relacion entre tablas para consulta de datos en un API REST que puede ser consumida por un FRONTED.
+Desarrollo basado en los criterios de una tienda virtual online compra de Ebooks, pasarela de pagos, integracon de pagos por Paypal, registro y validaciones, servicios por roles, Backend creado en SpringBoot - java y El frontend diseñado en Anagular RESTU FULL API consumo de la logica.
 
 
 
 ## 💻 FUNCIONES DEL API DESARROLLO💻
+- 🌟 CONSUMO API PAYPAL
 - 🌟 LISTAR USUARIO, TEMA, RESPUESTA
 - 🌟 FILTRAR ID
 - 🌟 ELIMINACION ID
@@ -61,30 +61,28 @@ Desarrollo basado en los criterios del Challengs 3 Creacion FORO HUB, un aplicat
 
 # 🌟   VISTAS DE LA PAGINA WEB 🌟
 
-[![foro1.jpg](https://i.postimg.cc/MpF0fQCM/foro1.jpg)](https://postimg.cc/FY0k27sN)
+[![portada-bookstoreapi.jpg](https://i.postimg.cc/Hn0WhhcB/portada-bookstoreapi.jpg)](https://postimg.cc/MfT8ctYQ)
 
-[![foro2.jpg](https://i.postimg.cc/Sxs7Krvb/foro2.jpg)](https://postimg.cc/RNknscmg)
+[![libros-bookstoreapi.jpg](https://i.postimg.cc/0j12ZsQz/libros-bookstoreapi.jpg)](https://postimg.cc/KkQ2vCtb)
 
-[![foro3.jpg](https://i.postimg.cc/X7xk3hxg/foro3.jpg)](https://postimg.cc/1fnqrvkg)
 
 # 🌟   Autenticación, Registro, Login, Validaciones  🌟
 
-[![foro4.jpg](https://i.postimg.cc/tC9NKydT/foro4.jpg)](https://postimg.cc/mh699v5f)
+[![registro-bookstoreapi.jpg](https://i.postimg.cc/d1yV81qM/registro-bookstoreapi.jpg)](https://postimg.cc/S2m44m2V)
 
-[![foro5.jpg](https://i.postimg.cc/43H663G8/foro5.jpg)](https://postimg.cc/3y707Ydp)
+# 🌟   VISTAS DE CONSUMO API PAYPAL 🌟
 
-# 🌟   VISTAS DE LA PAGINA WEB 🌟
+[![compras-bookstoreapi.jpg](https://i.postimg.cc/TY9YjBXP/compras-bookstoreapi.jpg)](https://postimg.cc/7f5kwshv)
 
-[![foro6.jpg](https://i.postimg.cc/vBRW3dHG/foro6.jpg)](https://postimg.cc/SXr2x3MP)
+# 🌟   VISTAS DE LA PAGINA WEB  🌟
 
-[![foro7.jpg](https://i.postimg.cc/wvhDrb7L/foro7.jpg)](https://postimg.cc/34xy41jx)
+[![actualizacion-bookstoreapi.jpg](https://i.postimg.cc/J4mzkMvg/actualizacion-bookstoreapi.jpg)](https://postimg.cc/4nLGCkJb)
 
-[![foro8.jpg](https://i.postimg.cc/d3wGcmyX/foro8.jpg)](https://postimg.cc/34fkgG9C)
-
-
-
+[![edicion-bookstoreapi.jpg](https://i.postimg.cc/XYYNsxVk/edicion-bookstoreapi.jpg)](https://postimg.cc/0bhqQYKz)
 
 ## 💻 IDES/ INSTALACIÓN O REQUERIMIENTOS💻
+- ANGULAR
+- ANGULAR MATERIAL
 - MAVEN
 - LIBRERIA JPA 
 - MYSQL
@@ -98,7 +96,8 @@ Desarrollo basado en los criterios del Challengs 3 Creacion FORO HUB, un aplicat
 ## 🌟 Tecnologías usadas 🌟
 | Tecnología | Versión | Descripción                                                                     |
 |------------|---------|---------------------------------------------------------------------------------|
-|ANGULAR     | 15.1.5  | Lenguaje para el desarrollo visual.                                             |
+|ANGULAR     | 15.1.5  | Lenguaje para el desarrollo   visual.                                             |
+|SPRIING     | 17      | Lenguaje para el desarrollo Backend                                               |
 
 ## 🤝 Redes sociales 🤝
 

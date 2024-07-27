@@ -104,7 +104,7 @@ Desarrollo basado en los criterios del Challengs 3 Creacion FORO HUB, un aplicat
 
 -  GitHub: https://github.com/Johanlex20
 -  LinkedIn: https://www.linkedin.com/in/johanlex20/
--  Youtube: https://lnkd.in/ebUC6PV7
+-  Youtube: https://youtu.be/6IqSJET2Tjc?si=mCDeoFNafut02MOs
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">

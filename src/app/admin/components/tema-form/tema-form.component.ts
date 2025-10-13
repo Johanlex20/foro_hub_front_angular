@@ -57,7 +57,7 @@ export class TemaFormComponent implements OnInit {
 
           this.form = this.fb.group({
             titulo: [tema.titulo, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-            mensaje: [tema.mensaje, [Validators.required, Validators.minLength(5), Validators.maxLength(5000), Validators.pattern('[a-z0-9- ]+')]],
+            mensaje: [tema.mensaje, [Validators.required, Validators.minLength(5), Validators.maxLength(5000), Validators.pattern(/^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ0-9.,\-\/\?\[\]\{\}\s]+$/)]],
             genero: [tema.genero, [Validators.required]],
             usuarioId: [tema.usuarioId, [Validators.required]]
           });
@@ -67,7 +67,7 @@ export class TemaFormComponent implements OnInit {
 
       this.form = this.fb.group({
         titulo: [, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-        mensaje: [, [Validators.required, Validators.minLength(5), Validators.maxLength(5000), Validators.pattern('[a-z0-9- ]+')]],
+        mensaje: [, [Validators.required, Validators.minLength(5), Validators.maxLength(5000), Validators.pattern(/^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ0-9.,\-\/\?\[\]\{\}\s]+$/)]],
         genero: [, [Validators.required]],
         usuarioId: [this.usuarioId, [Validators.required]]
       });

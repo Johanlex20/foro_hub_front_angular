@@ -99,7 +99,7 @@
                                             El Mensaje puede tener 5000 caracteres maximo
                                         </ng-container>
                                         <ng-container *ngIf="controlHasError('mensajeRespuesta', 'pattern')">
-                                            El Mensaje no puede tener caracteres entre:  a-z 0-9 - +
+                                            El Mensaje no puede tener caracteres especiales como:  + = ; :  '' " " < >
                                         </ng-container>
                                     </mat-error>
                                 </mat-form-field>

@@ -287,6 +287,18 @@ body {
     color:#047a85  !important;
   }
 
-  
+  /*SLIDER HOME TEMAS */
+@import 'swiper/swiper-bundle.min.css';
+
+.swiper {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
  

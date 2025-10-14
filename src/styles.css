@@ -12,6 +12,12 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+/*HEADER*/
+
+.img-logo {
+    width: 60px; 
+    /*height: 60px;*/   
+}
 
 .mw-96px {
     max-width: 96px;
@@ -189,7 +195,7 @@ body {
 }
 
 .text .title {
-    font-size: 5em;
+    font-size: 8rem;
     color: #FF3D79;
 }
 
@@ -199,6 +205,9 @@ body {
     display: inline-block;
 }
 
+.bungee-title {
+  font-family: 'Bungee', cursive;
+}
 
 .custom-toolbar {
     background-color: #09C2D2; /* Cambia este valor al color que prefieras */
@@ -277,5 +286,7 @@ body {
     background-color:white !important; 
     color:#047a85  !important;
   }
+
+  
 
  

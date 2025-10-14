@@ -1,16 +1,17 @@
 <mat-toolbar class="custom-toolbar">
-    <span>FORO GOOD ONLINE</span>
-  
-    <button mat-button routerLink="/" class="ms-3">
-        Inicio
+    <a routerLink="/">
+        <img class="img-logo" [src]="'logoBlu.png' | apiImg" [alt]="'logoBlu.png'">
+    </a>
+    <button mat-button routerLink="/" class="ms-5">
+        <h1 class="bungee-title">Inicio</h1>
     </button>
 
     <button mat-button routerLink="/temas" class="ms-3">
-        Temas
+        <h1 class="bungee-title">Temas</h1>
     </button>
 
     <button mat-button routerLink="/admin/tema" class="ms-3" *ngIf="usuario?.role === 'ADMIN'">
-        Administración
+        <h1 class="bungee-title">Administración</h1>
     </button>
 
     <span class="spacer"></span> <!--enviar al final de la barra los botones -->

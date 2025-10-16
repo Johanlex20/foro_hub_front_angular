@@ -8,16 +8,14 @@
 </div>
 
 <!-- Slider básico -->
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide" *ngFor="let tema of lastTemas">
-      <app-tema-card [tema]="tema"></app-tema-card>
+ <div class="slider-fondo">
+  <div class="swiper mySwiper ">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let tema of lastTemas">
+        <app-tema-card [tema]="tema"></app-tema-card>
+      </div>
     </div>
   </div>
-
-  <!-- Controles y paginación -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
 </div>
 
 <div class="container mt-5">

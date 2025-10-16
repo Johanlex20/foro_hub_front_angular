@@ -17,14 +17,13 @@ Swiper.use([Autoplay, Navigation]);
 export class IndexComponent implements OnInit{
 
   lastTemas?: Tema[];
-  swiperInitialized = false;
+  private swiper?: Swiper;
   //usuario: Usuario;
 
   constructor(
     private homeService: HomeService,
     private authService:AuthService,
     private router:Router,
-    private cdr: ChangeDetectorRef
   ){}
 
   ngOnInit(): void {
@@ -32,8 +31,14 @@ export class IndexComponent implements OnInit{
     .subscribe(lastTemas => {
       this.lastTemas = lastTemas;
     });
+
+     setTimeout(() => this.initSwiper(), 300);
   }
 
+  ngAfterViewInit(): void {
+      // Reintenta si por algún motivo no estaba listo el DOM
+      setTimeout(() => this.initSwiper(), 600);
+    }
 
   navigateToNewTema(): void {
     if (this.authService.isAuthenticated()) {
@@ -54,33 +59,28 @@ export class IndexComponent implements OnInit{
     });
   }
 
-ngAfterViewInit(): void {
-  setTimeout(() => {
-    if (this.lastTemas && this.lastTemas.length > 0 && !this.swiperInitialized) {
-      const swiper = new Swiper('.mySwiper', {
-        slidesPerView: 5,
-        spaceBetween: 20,
-        loop: true,
-        grabCursor: true,
-        speed: 800,
-        autoplay: {
-          delay: 1800,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: false,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        observer: true,
-        observeParents: true,
-      });
-      swiper.autoplay.start(); // ✅ Reinicia si se pausa
-      this.swiperInitialized = true;
-      this.cdr.detectChanges();
-    }
-  }, 300);
-}
+ private initSwiper(): void {
+    if (!this.lastTemas?.length) return;
+    if (this.swiper) return; // evita duplicar
+
+    this.swiper = new Swiper('.mySwiper', {
+      modules: [Autoplay, Navigation], 
+      slidesPerView: 5,
+      spaceBetween: 20,
+      loop: true,
+      speed: 1800,
+      grabCursor: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
 
 
 }

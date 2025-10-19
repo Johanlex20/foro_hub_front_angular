@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { SolicitudAutenticacion, Profile } from '../../interfaces/auth.interfaces';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
-
-
 
 @Component({
   selector: 'app-login',
@@ -15,38 +13,54 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
   solicitudAutenticacion : SolicitudAutenticacion = {};
+  errors: string [] = [];
+  passwordVisible = false;
+
+  form:FormGroup = this.fb.group({
+      email: [, [Validators.required, Validators.email]],
+      password: [,[Validators.required, Validators.minLength(4)]]
+    });
 
   constructor(
+    private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
     private snackBar: MatSnackBar
   ){}
 
+  controlHasError(control:string, error: string){
+    return this.form.controls[control].hasError(error);
+  }
 
-  login(form: NgForm){
-    if(form.invalid){
+  login(){
+    if(this.form.invalid){
       return;
     }
-    this.authService.autenticacion(this.solicitudAutenticacion)
-    .subscribe(profile =>{
-/*
-      Swal.fire({
-        position:'center',
-        icon: "success",
-        title: `Bienvenido ${profile.nombre}`,
-        showConfirmButton: false,
-        timer: 1500
-      });
-*/
-      this.alertaSwal("success", `Bienvenido ${profile.nombre}`)
+    this.errors = [];
+    this.solicitudAutenticacion = this.form.value; 
 
-     /* this.snackBar.open(`Bienvenido ${profile.nombre}`, 'Cerrar', { 
-        duration: 5000,
-        verticalPosition: 'bottom', // cambiar por sweetmessages
-        horizontalPosition: 'center'// cambiar por sweetmessages
-      });*/
-      this.router.navigate([''])
-    });
+    this.authService.autenticacion(this.solicitudAutenticacion)
+    .subscribe({
+      next: profile =>{
+        this.alertaSwal("success", `Bienvenido ${profile.nombre}`);
+        this.router.navigate(['']);
+      },
+      
+      error: err => {
+        const e = err.error;
+        if (typeof e === 'string') {
+            this.errors.push(e);
+        } else if (e && (e.status === 400 || e.status === 403)) { 
+          const mensaje = e.detail || 'ERROR EMAIL O CONTRASEÑA: INCORRECTA!';
+          this.errors.push(mensaje);
+          this.alertaSwal('error', mensaje);
+        } else if (e && e.status === 422 && e.errors) {
+          this.errors.push(...e.errors);
+        }else{
+          this.errors.push('Ocurrió un error inesperado. Intente nuevamente.');
+        }
+      }
+    });   
   }
 
   

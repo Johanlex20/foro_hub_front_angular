@@ -124,6 +124,12 @@ export class TemaComponent implements OnInit {
 
 
   createRespuesta() {
+
+    if (!this.authService.isAuthenticated()) {
+      this.alertaSwal("warning", 'Necesita estar registrado para comentar un tema');
+      this.router.navigate(['/auth/login']);
+    }
+
     if (this.form!.invalid) {
       this.form?.markAllAsTouched();
       return;

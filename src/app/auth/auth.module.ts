@@ -6,6 +6,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { SharedModule } from "../shared/shared.module";
 
 
 
@@ -21,6 +22,7 @@ import { LayoutComponent } from './components/layout/layout.component';
     FormsModule,
     ReactiveFormsModule,
     AuthRoutingModule,
-  ]
+    SharedModule
+]
 })
 export class AuthModule { }

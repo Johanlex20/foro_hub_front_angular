@@ -78,6 +78,24 @@ export class IndexComponent implements OnInit{
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      breakpoints: {
+        0: {
+          slidesPerView: 1, // Celulares
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 2, // Tablets
+          spaceBetween: 15,
+        },
+        1024: {
+          slidesPerView: 3, // Laptops medianas
+          spaceBetween: 20,
+        },
+        1440: {
+          slidesPerView: 5, // Escritorio grande
+          spaceBetween: 25,
+        },
+      },
     });
   }
 

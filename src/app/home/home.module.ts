@@ -13,6 +13,11 @@ import { FormularioTemaComponent } from './components/formulario-tema/formulario
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -33,7 +38,12 @@ import { FooterComponent } from './components/footer/footer.component';
         SharedModule,
         InfiniteScrollModule,
         ReactiveFormsModule,
-        MaterialModule
+        MaterialModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatMenuModule,
     ]
 })
 export class HomeModule { }

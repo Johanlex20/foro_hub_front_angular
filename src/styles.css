@@ -1,3 +1,9 @@
+
+@import 'swiper/swiper-bundle.min.css';
+
+
+
+
 .invalid-feedback {
     display: block;
 }
@@ -46,6 +52,17 @@ body {
     color: #F44336;
 }
 
+.icon-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+  justify-content: center;
+}
+
 
 .text-container {
     display: flex;
@@ -83,34 +100,23 @@ body {
 
 .container-card{
     width: 100%;
-    padding: 10px;
+    margin: 10px;
     height: 100vh;
     align-content: center;
 }
 
 .card-respuesta{
-    height: max-content;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-   
 }
 
-
-.card-formulario-respuesta{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
 
 .custom-mat-card{
     width: 100%; /* Ajusta el ancho al 100% del contenedor */
     height: max-content; /* Ajusta la altura automáticamente */
-    padding: 20px; /* Espaciado interno */
-    
+    padding: 20px; /* Espaciado interno */  
 }
 
 .custom-mat-card .mat-card-header {
@@ -130,37 +136,38 @@ body {
 }
 
 .custom-mat-card .category-box {
-    /* background-color: #f5f5f5; Color de fondo de la caja de categoría */
     top: -30px;
     font-size: 15px;
 }
 
-.card-fondo-formulario-respuesta{
+.card-formulario-respuesta{
     background-color: #ade613;
-    margin-left: 10px;
     border-radius: 15px;
+    margin-left: 10px;
+    padding: 20px;
+    width: 100%;
+}
+
+.card-titulo{
+  display: flex;
+  justify-content: center;
 }
 
 .card-fondo-formulario-respuesta textarea{
     border-radius: 10px;
     border-color:#8ebb11;
-    height: auto;
-    
+    height: auto; 
 }
-
 
 .card-respuesta-tema{
     margin-top: 10px;
 }
 
-
 .card-cliente-respuestas .card-respuesta-tema {
     background-color:transparent;
     border: 1px solid #ade613;
     display: flex;
-  
 }
-
 
 .card-actions{
     padding: none;
@@ -209,9 +216,25 @@ body {
   font-family: 'Bungee', cursive;
 }
 
+/* LAYOUT HOME */
+
 .custom-toolbar {
     background-color: #09C2D2; /* Cambia este valor al color que prefieras */
     color: white; /* Ajusta el color del texto si es necesario */
+}
+
+/* LAYOUT ADMIN */
+
+.custom-toolbar-adm {
+    background-color: #0992d2; /* Cambia este valor al color que prefieras */
+    color: white; /* Ajusta el color del texto si es necesario */
+}
+
+.custom-sidenav-adm {
+  width: 220px;
+  background-color: #0992d2;
+  color: white;
+  padding: 0.2rem;
 }
 
 /* Texto de los enlaces */
@@ -230,9 +253,9 @@ body {
 
 .barra-img {
     display: flex;
-    justify-content: center;
     align-items: center;
-
+    justify-content: space-evenly;
+    
 }
 
 .barra-img img {
@@ -240,7 +263,11 @@ body {
     width: 50px; /* Ajusta el tamaño del avatar */
     height: 50px; /* Ajusta el tamaño del avatar */
     border-radius: 50%; /* Hace la imagen redonda */
-    margin-right: 20px;
+}
+
+.barra-img span {
+    font-size: 1.2rem;
+    margin-left: 4px;
 }
 
 .img-redonda {
@@ -263,19 +290,45 @@ body {
     color: #09C2D2; /* Cambia el color del icono cuando está "liked" */
   }
 
+
+  /* BOTONES  */
+
+  .contenedor-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
   .custom-button {
     background-color: #09C2D2 !important;
     color: white !important;
   }
-  
+
   .custom-button:hover {
     background-color: white !important;
     color: #09C2D2 !important;
   }
 
+  .custom-button-adm {
+    background-color: #0992d2  !important;
+    color: white !important;
+  }
+  .custom-button-adm-2 {
+      background-color: white !important;
+      color:  #0992d2  !important; 
+      margin-right: 5px;
+    }
+  
+
+  .custom-button-adm:hover {
+    background-color: white !important;
+    color: #0992d2  !important;
+  }
+
   .custom-button-2 {
     background-color: white !important;
     color:  #09C2D2 !important; 
+    margin-right: 5px;
   }
   
   .custom-button-2:hover {
@@ -294,9 +347,13 @@ body {
     color:#047a85  !important;
   }
 
-  /*SLIDER HOME TEMAS */
-@import 'swiper/swiper-bundle.min.css';
+  /* HOME */
 
+  .contenerdor-titulo-home h1{
+    color: #09C2D2 ;
+  }
+
+  /*SLIDER HOME TEMAS */
 .swiper {
   width: 100%;
   padding: 2rem 0;
@@ -322,14 +379,25 @@ body {
   padding: 0 1rem;
 }
 
+.contenedor-buttons-layout{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-desktop .contenedor-buttons-layout .custom-button{
+  margin: 0;
+}
+
 .menu-desktop,
 .user-desktop,
-.auth-desktop {
+.auth-desktop,
+.barra-img {
   display: flex;
   align-items: center;
 }
 
-/* === Sidenav === */
+/*  Sidenav  */
 .sidenav-container {
   height: 100%;
 }
@@ -339,7 +407,6 @@ body {
   background-color: #09C2D2 ;
   color: white;
   padding: 0.2rem;
-  
 }
 
 .custom-sidenav button {
@@ -348,6 +415,76 @@ body {
   text-align: left;
 }
 
+.custom-sidenav-adm button {
+  color: white !important;
+  width: 100%;
+  text-align: left;
+}
+
+
+/* FORMULARIO TEMA */
+
+.form-tema{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* FORMULARIO USUARIO ADM */
+
+.form-usu-adm{
+  margin-top: 20px;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-usu-adm h1{
+  color: #09C2D2;
+  font-size: 55px;
+}
+
+.form-tema h1{
+  color: #09C2D2;
+  font-size: 55px;
+}
+
+.list-tema h1{
+  color: #0992d2 ;
+  font-size: 55px;
+}
+
+
+/* LISTADO TEMAS */
+
+.list-tema h1{
+  color: #0992d2 ;
+  font-size: 55px;
+}
+
+.contenedor-lista-tema{
+  height: 100vh;
+  margin: 10px;
+}
+
+.list-usu-password{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-usu-password{
+    width: 35px;
+  }
+
+
 
 
 /* =============================
@@ -355,6 +492,8 @@ body {
 ============================= */
 
 /* Pantallas medianas (tablets) */
+
+
 @media (max-width: 992px) {
   .text .title {
     font-size: 4rem;
@@ -372,14 +511,14 @@ body {
   .menu-button {
     display: none !important;
   }
-  
 }
 
 /* En móviles ocultar los botones de escritorio */
 @media (max-width: 767px) {
   .menu-desktop,
   .user-desktop,
-  .auth-desktop {
+  .auth-desktop,
+  .barra-img {
     display: none !important;
   }
 
@@ -388,9 +527,30 @@ body {
     color: white;
   }
 
-  .custom-button{
-    margin-bottom: 0.8rem;
+  .card-respuesta{
+    display: flex;
+    flex-direction: column;
   }
+
+  .card-formulario-respuesta{
+    margin: 0; 
+  }
+
+
+  /* Lista Temas */
+
+  .icon-list{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .colum-oculta{
+   display: none;
+  }
+
+  
+
 }
 
 /* Pantallas pequeñas (móviles) */
@@ -402,6 +562,29 @@ body {
    .footer p {
     font-size: 0.75rem; /* reduce el tamaño */
   }
+
+  .form-tema h1{
+    font-size: 45px;
+  }
+
+  /* Lista Temas */
+
+  .list-tema h1{
+    font-size: 40px;
+  }
+
+
+}
+
+@media (max-width: 360px) {
+  .custom-mat-card{
+    padding: 10px;   
+  }
+
+  .form-tema h1{
+    font-size: 40px;
+  }
+
 }
 
 

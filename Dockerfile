@@ -24,7 +24,7 @@ RUN npm run build -- --configuration production
 FROM nginx:1.25-alpine
 
 # Copiamos los archivos compilados de Angular al contenedor de NGINX
-COPY --from=build /app/dist/foro-hub-front-angular /usr/share/nginx/html
+COPY --from=build /app/dist/FORO_HUB_FRONT_ANGULAR /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Exponemos el puerto 80
